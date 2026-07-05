@@ -33,19 +33,21 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 moveInput = inputActions.Default.Move.ReadValue<Vector2>();
         Vector2 targetVelocity = moveInput * moveSpeed;
-        rb.linearVelocity = new Vector2(targetVelocity.x, targetVelocity.y);
+        rb.linearVelocity = new Vector2(targetVelocity.x, rb.linearVelocity.y);
+        Debug.Log("Velocity: " + targetVelocity);
     }
 
     private void Update()
     {
-        if (inputActions.Default.Jump.triggered && isGrounded)
-        {
-            Jump();
-        }
+        
 
-        if (inputActions.Default.Jump.triggered)
+        if(inputActions.Default.Jump.triggered)
         {
-            Debug.Log(isGrounded);
+            Debug.Log("IsGrounded: " + isGrounded);
+            if (isGrounded)
+            {
+                Jump();
+            }
         }
     }
 
@@ -55,6 +57,7 @@ public class PlayerController : MonoBehaviour
         // rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
         Debug.Log("Jumpin' " + jumpForce);
+        Debug.Log("Linear Velocity: " + rb.linearVelocity);
     }
 
     private void OnCollisionStay2D(Collision2D collision)
