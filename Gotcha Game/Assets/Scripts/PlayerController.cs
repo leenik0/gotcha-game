@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
-    public float jumpForce = 100f;
+    public float jumpForce = 5f;
 
     private Rigidbody2D rb;
     private PlayerMechanics inputActions;
@@ -32,8 +32,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 moveInput = inputActions.Default.Move.ReadValue<Vector2>();
-        Vector2 targetVelocity = moveInput * moveSpeed;
-        rb.linearVelocity = new Vector2(targetVelocity.x, targetVelocity.y);
+        rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
     }
 
     private void Update()
