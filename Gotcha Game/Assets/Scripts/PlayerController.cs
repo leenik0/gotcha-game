@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -12,6 +13,16 @@ public class PlayerController : MonoBehaviour
     private PlayerMechanics inputActions;
     private bool isGrounded = true;
 
+    // whether the player has been grabbed by a crane
+    private bool grabbed = false;
+
+    // whether the player can be grabbed by a crane
+    private bool grabbable = true;
+
+    // the amount of time before the player can be grabbed by a crane again
+    private float timeTillGrabbable = 1f;
+
+    private Transform grabbedTransform;
 
     void OnEnable()
     {
@@ -31,20 +42,31 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // make this more limited if FixedUpdate is expanded
+        if (grabbed)
+            return;
+
         Vector2 moveInput = inputActions.Default.Move.ReadValue<Vector2>();
         rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
     }
 
     private void Update()
     {
-        if (inputActions.Default.Jump.triggered && isGrounded)
+        if (inputActions.Default.Jump.triggered && (isGrounded || grabbed))
         {
             Jump();
+
+            ReleaseGrab();
         }
 
         if (inputActions.Default.Jump.triggered)
         {
             Debug.Log(isGrounded);
+        }
+
+        if(grabbedTransform && grabbed)
+        {
+            transform.position = grabbedTransform.position;
         }
     }
 
@@ -73,5 +95,35 @@ public class PlayerController : MonoBehaviour
 
         isGrounded = false;
         Debug.Log("Not Grounded smh");
+    }
+
+    // called when a crane grabs the player
+    public void Grabbed(Transform grabbedTransform)
+    {
+        if (grabbable == false)
+            return;
+
+        this.grabbedTransform = grabbedTransform;
+        
+        grabbed = true;
+        grabbable = false;
+
+        rb.gravityScale = 0f;
+        rb.linearVelocity = Vector2.zero;
+        transform.position = Vector2.zero;
+    }
+
+    private void ReleaseGrab()
+    {
+        grabbed = false;
+        transform.parent = null;
+        rb.gravityScale = 1f;
+        StartCoroutine(GrabTime());
+    }
+
+    private IEnumerator GrabTime()
+    {
+        yield return new WaitForSeconds(timeTillGrabbable);
+        grabbable = true;
     }
 }
