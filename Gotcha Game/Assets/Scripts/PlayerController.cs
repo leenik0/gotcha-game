@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private PlayerMechanics inputActions;
+    private GachaController gachaController;
     // private bool isGrounded = true;
 
 
@@ -43,6 +44,11 @@ public class PlayerController : MonoBehaviour
 
             Jump();
             jumpCount++;
+        }
+
+        if (inputActions.Default.Interact.triggered)
+        {
+            gachaController.Gacha();
         }
     }
 
