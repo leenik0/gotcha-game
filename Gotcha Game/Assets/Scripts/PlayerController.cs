@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
+
+    [SerializeField]
     private int jumpCount = 0;
 
     private Rigidbody2D rb;
@@ -54,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (inputActions.Default.Jump.triggered && (jumpCount < 1 || grabbed))
+        if (inputActions.Default.Jump.triggered && (jumpCount < 2 || grabbed))
         {
 
             Jump();
@@ -85,7 +87,7 @@ public class PlayerController : MonoBehaviour
     {
         foreach (ContactPoint2D contact in collision.contacts)
         {
-            if (contact.normal.y > 0.7f)
+            if (contact.normal.y > 0.7f && !(rb.linearVelocityY > 0))
             {
                 jumpCount = 0;
                 return;
@@ -112,6 +114,8 @@ public class PlayerController : MonoBehaviour
         rb.gravityScale = 0f;
         rb.linearVelocity = Vector2.zero;
         transform.position = Vector2.zero;
+
+        jumpCount = 0;
     }
 
     private void ReleaseGrab()
