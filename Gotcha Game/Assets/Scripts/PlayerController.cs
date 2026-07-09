@@ -7,10 +7,11 @@ public class PlayerController : MonoBehaviour
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
+    private int jumpCount = 0;
 
     private Rigidbody2D rb;
     private PlayerMechanics inputActions;
-    private bool isGrounded = true;
+    // private bool isGrounded = true;
 
 
     void OnEnable()
@@ -37,21 +38,17 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (inputActions.Default.Jump.triggered && isGrounded)
+        if (inputActions.Default.Jump.triggered && jumpCount < 1)
         {
-            Jump();
-        }
 
-        if (inputActions.Default.Jump.triggered)
-        {
-            Debug.Log(isGrounded);
+            Jump();
+            jumpCount++;
         }
     }
 
     private void Jump()
     {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-        // rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
         Debug.Log("Jumpin' " + jumpForce);
     }
@@ -62,7 +59,7 @@ public class PlayerController : MonoBehaviour
         {
             if (contact.normal.y > 0.7f)
             {
-                isGrounded = true;
+                jumpCount = 0;
                 return;
             }
         }
@@ -70,8 +67,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-
-        isGrounded = false;
         Debug.Log("Not Grounded smh");
     }
 }
