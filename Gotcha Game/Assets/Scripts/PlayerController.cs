@@ -8,10 +8,12 @@ public class PlayerController : MonoBehaviour
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
+    private int jumpCount = 0;
 
     private Rigidbody2D rb;
     private PlayerMechanics inputActions;
-    private bool isGrounded = true;
+    private GachaController gachaController;
+    // private bool isGrounded = true;
 
     // whether the player has been grabbed by a crane
     private bool grabbed = false;
@@ -52,16 +54,18 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (inputActions.Default.Jump.triggered && (isGrounded || grabbed))
+        if (inputActions.Default.Jump.triggered && (jumpCount < 1 || grabbed))
         {
+
             Jump();
 
             ReleaseGrab();
+            jumpCount++;
         }
 
-        if (inputActions.Default.Jump.triggered)
+        if (inputActions.Default.Interact.triggered)
         {
-            Debug.Log(isGrounded);
+            gachaController.Gacha();
         }
 
         if(grabbedTransform && grabbed)
@@ -73,7 +77,6 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-        // rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
         Debug.Log("Jumpin' " + jumpForce);
     }
@@ -84,7 +87,7 @@ public class PlayerController : MonoBehaviour
         {
             if (contact.normal.y > 0.7f)
             {
-                isGrounded = true;
+                jumpCount = 0;
                 return;
             }
         }
@@ -92,8 +95,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-
-        isGrounded = false;
         Debug.Log("Not Grounded smh");
     }
 
