@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private PlayerMechanics inputActions;
     private GachaController gachaController;
+    private bool isFacingRight = true;
     // private bool isGrounded = true;
 
     // whether the player has been grabbed by a crane
@@ -52,6 +53,14 @@ public class PlayerController : MonoBehaviour
 
         Vector2 moveInput = inputActions.Default.Move.ReadValue<Vector2>();
         rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
+        if (moveInput.x > 0 && !isFacingRight)
+        {
+            Flip();
+        }
+        else if (moveInput.x < 0 && isFacingRight)
+        {
+            Flip();
+        }
     }
 
     private void Update()
@@ -70,7 +79,7 @@ public class PlayerController : MonoBehaviour
             gachaController.Gacha();
         }
 
-        if(grabbedTransform && grabbed)
+        if (grabbedTransform && grabbed)
         {
             transform.position = grabbedTransform.position;
         }
@@ -100,6 +109,14 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Not Grounded smh");
     }
 
+    private void Flip()
+    {
+        isFacingRight = !isFacingRight;
+        Vector3 scaler = transform.localScale;
+        scaler.x *= -1;
+        transform.localScale = scaler;
+    }
+
     // called when a crane grabs the player
     public void Grabbed(Transform grabbedTransform)
     {
@@ -107,7 +124,7 @@ public class PlayerController : MonoBehaviour
             return;
 
         this.grabbedTransform = grabbedTransform;
-        
+
         grabbed = true;
         grabbable = false;
 
