@@ -79,8 +79,6 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-
-        Debug.Log("Jumpin' " + jumpForce);
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -93,11 +91,6 @@ public class PlayerController : MonoBehaviour
                 return;
             }
         }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        Debug.Log("Not Grounded smh");
     }
 
     // called when a crane grabs the player
