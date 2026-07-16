@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
+    public float moveAcceleration = 2.5f; // DELETE THIS IF SOMETHING ELSE WORKS
+    public float knockbackTime = 0.25f;
     public float jumpForce = 5f;
 
     [SerializeField]
@@ -17,6 +19,9 @@ public class PlayerController : MonoBehaviour
     private GachaController gachaController;
     // private bool isGrounded = true;
 
+    private bool knockbacked = false;
+
+    //[Grabbed Variables]
     // whether the player has been grabbed by a crane
     private bool grabbed = false;
 
@@ -47,11 +52,13 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         // make this more limited if FixedUpdate is expanded
-        if (grabbed)
+        if (grabbed || knockbacked)
             return;
 
         Vector2 moveInput = inputActions.Default.Move.ReadValue<Vector2>();
-        rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
+
+        //rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocityY); // OG Movement Code
+        rb.linearVelocity = new Vector2(Mathf.Lerp(rb.linearVelocityX, moveInput.x * moveSpeed, moveAcceleration), rb.linearVelocityY); // New Movement Code to Allow for Knockback/Lerping
     }
 
     private void Update()
@@ -81,6 +88,7 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
     }
 
+    // resets jump count if on ground
     private void OnCollisionStay2D(Collision2D collision)
     {
         foreach (ContactPoint2D contact in collision.contacts)
@@ -111,6 +119,7 @@ public class PlayerController : MonoBehaviour
         jumpCount = 0;
     }
 
+    // resets the player's movement following the grab
     private void ReleaseGrab()
     {
         grabbed = false;
@@ -119,9 +128,18 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(GrabTime());
     }
 
+    // waits until the timeTillGrabbable has passed before allowing the player to become grabbable again
     private IEnumerator GrabTime()
     {
         yield return new WaitForSeconds(timeTillGrabbable);
         grabbable = true;
+    }
+
+    // makes the player unable to move for `knockbackTime` seconds
+    public IEnumerator Knockback()
+    {
+        knockbacked = true;
+        yield return new WaitForSeconds(knockbackTime);
+        knockbacked = false;
     }
 }

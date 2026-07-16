@@ -642,7 +642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamagingObstacle
   damage: 1
-  bounceForce: 2.5
+  bounceForce: 5
 --- !u!58 &1409066948
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -712,7 +712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamagingObstacle
   damage: 1
-  bounceForce: 2.5
+  bounceForce: 5
 --- !u!58 &1474674718
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -910,6 +910,14 @@ PrefabInstance:
     - target: {fileID: 4676000070604210426, guid: c9b98a01ae7c69c4f9cb99a9ae299c13, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5109724027615255328, guid: c9b98a01ae7c69c4f9cb99a9ae299c13, type: 3}
+      propertyPath: knockbackTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5109724027615255328, guid: c9b98a01ae7c69c4f9cb99a9ae299c13, type: 3}
+      propertyPath: moveAcceleration
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

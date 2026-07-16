@@ -31,11 +31,13 @@ public class DamagingObstacle : MonoBehaviour
             return;
 
         Rigidbody2D playerRB = other.GetComponent<Rigidbody2D>();
+        PlayerController playerController = other.GetComponent<PlayerController>();
 
         Vector2 playerDirection = (other.transform.position - transform.position).normalized;
 
         Debug.Log("PlayerDirection: " + playerDirection);
 
         playerRB.AddForce(playerDirection * bounceForce, ForceMode2D.Impulse);
+        StartCoroutine(playerController.Knockback());
     }
 }
