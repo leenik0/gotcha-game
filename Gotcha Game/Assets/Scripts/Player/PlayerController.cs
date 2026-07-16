@@ -50,6 +50,12 @@ public class PlayerController : MonoBehaviour
         inputActions = new PlayerMechanics();
     }
 
+    private void Start()
+    {
+        if(LevelManager.Instance != null)
+            transform.position = LevelManager.Instance.GetStartPosition();
+    }
+
     private void FixedUpdate()
     {
         // make this more limited if FixedUpdate is expanded
