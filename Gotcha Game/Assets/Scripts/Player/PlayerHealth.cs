@@ -53,11 +53,15 @@ public class PlayerHealth : MonoBehaviour
 
     public void Die()
     {
+        // DIE ANIMATION OR SMTH LMAO
         Debug.Log($"Dead ({currentHealth} health)");
+
+        Respawn();
     }
 
+    // reloads the current level via scene manager
     public void Respawn()
     {
-        // 
+        LevelManager.Instance.ReloadCurrentLevel();
     }
 }
