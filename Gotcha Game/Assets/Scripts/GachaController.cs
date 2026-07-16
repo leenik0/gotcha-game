@@ -1,4 +1,5 @@
 using System.Collections;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -47,9 +48,11 @@ public class GachaController : MonoBehaviour
 
     private IEnumerator ShowReward()
     {
+        canvas.transform.localScale = Vector3.zero;
+        canvas.transform.DOScale(1f, 0.5f).SetEase(Ease.OutBack);
         canvas.SetActive(true);
         yield return new WaitForSeconds(3f);
-        canvas.SetActive(false);
+        canvas.transform.DOScale(0f, 0.3f).SetEase(Ease.InBack).OnComplete(() => { canvas.SetActive(false); });
         canGacha = true;
     }
 }
