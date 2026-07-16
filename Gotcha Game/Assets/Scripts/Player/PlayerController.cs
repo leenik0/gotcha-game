@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
@@ -27,7 +28,12 @@ public class PlayerController : MonoBehaviour
 
     private bool knockbacked = false;
 
+    private Animator animator;
+
+
+
     //[Grabbed Variables]
+    
     // whether the player has been grabbed by a crane
     private bool grabbed = false;
 
@@ -52,11 +58,13 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         inputActions = new PlayerMechanics();
     }
 
     private void Start()
     {
+        animator.SetInteger("animState", 1);
         if(LevelManager.Instance != null)
             transform.position = LevelManager.Instance.GetRespawnPosition();
     }
@@ -82,8 +90,26 @@ public class PlayerController : MonoBehaviour
         }
 
         // if moving on ground, play walk sound
-        if (walkSFX && rb.linearVelocityY == 0 && rb.linearVelocityX != 0)
-            AudioSource.PlayClipAtPoint(walkSFX, transform.position);
+        if (Mathf.Abs(rb.linearVelocityY) < 0.15f && rb.linearVelocityX != 0)
+        {
+            if(walkSFX)
+                AudioSource.PlayClipAtPoint(walkSFX, transform.position);
+            // walk anim state
+            animator.SetInteger("animState", 3);
+            animator.Play("PlayerWalk", 0);
+        }
+        else if(rb.linearVelocityY != 0)
+        {
+            // jump anim state
+            animator.SetInteger("animState", 2);
+            animator.Play("PlayerJump",0);
+        }
+        else
+        {
+            // idle anim state
+            animator.SetInteger("animState", 1);
+            animator.Play("PlayerIdle", 0);
+        }
     }
 
     private void Update()
