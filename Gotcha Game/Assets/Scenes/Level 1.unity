@@ -253,8 +253,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   moveSpeed: 5
-  moveAcceleration: 2.5
-  knockbackTime: 0.25
   jumpForce: 5
   jumpCount: 0
   gachaController: {fileID: 1831706634}
