@@ -3,12 +3,14 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
 
+    [Header("Health Settings")]
     public int maxHealth = 3;
     public int currentHealth;
 
     public float immunityTime = 0.25f;
     private float lastDamageTime = 0f;
 
+    [Header("SFX Settings")]
     public AudioClip hurtSFX;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -56,12 +58,16 @@ public class PlayerHealth : MonoBehaviour
         // DIE ANIMATION OR SMTH LMAO
         Debug.Log($"Dead ({currentHealth} health)");
 
-        Respawn();
+        Respawn(true);
     }
 
-    // reloads the current level via scene manager
-    public void Respawn()
+    // respawns the player
+    public void Respawn(bool resetHealth)
     {
-        LevelManager.Instance.ReloadCurrentLevel();
+        // add respawn animation perhaps
+
+        if (resetHealth)
+            currentHealth = maxHealth;
+        transform.position = LevelManager.Instance.GetRespawnPosition();
     }
 }
