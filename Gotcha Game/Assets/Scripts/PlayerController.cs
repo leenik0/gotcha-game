@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private PlayerMechanics inputActions;
-    private GachaController gachaController;
+    [SerializeField] private GachaController gachaController;
     private bool isFacingRight = true;
     // private bool isGrounded = true;
 

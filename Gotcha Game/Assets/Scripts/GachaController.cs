@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -5,6 +6,15 @@ using UnityEngine.UI;
 public class GachaController : MonoBehaviour
 {
     public TMP_Text promptText;
+    public GachaReward[] rewards;
+
+    [Header("Reward Menu")]
+    public GameObject canvas;
+    public TMP_Text title;
+    public TMP_Text rarity;
+    public Image sprite;
+
+    private bool canGacha = true;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -24,6 +34,22 @@ public class GachaController : MonoBehaviour
 
     public void Gacha()
     {
-        //
+        if (canGacha)
+        {
+            canGacha = false;
+            GachaReward reward = rewards[Random.Range(0, rewards.Length)];
+            title.text = reward.GetName();
+            rarity.text = reward.GetRarity();
+            sprite.sprite = reward.GetSprite();
+            StartCoroutine(ShowReward());
+        }
+    }
+
+    private IEnumerator ShowReward()
+    {
+        canvas.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        canvas.SetActive(false);
+        canGacha = true;
     }
 }
