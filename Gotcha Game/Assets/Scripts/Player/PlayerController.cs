@@ -11,6 +11,11 @@ public class PlayerController : MonoBehaviour
     public float knockbackTime = 0.25f;
     public float jumpForce = 5f;
 
+    [Header("SFX Settings")]
+    public AudioClip walkSFX;
+    public AudioClip jumpSFX;
+
+
     [SerializeField]
     private int jumpCount = 0;
 
@@ -53,7 +58,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         if(LevelManager.Instance != null)
-            transform.position = LevelManager.Instance.GetStartPosition();
+            transform.position = LevelManager.Instance.GetRespawnPosition();
     }
 
     private void FixedUpdate()
@@ -75,6 +80,10 @@ public class PlayerController : MonoBehaviour
         {
             Flip();
         }
+
+        // if moving on ground, play walk sound
+        if (walkSFX && rb.linearVelocityY == 0 && rb.linearVelocityX != 0)
+            AudioSource.PlayClipAtPoint(walkSFX, transform.position);
     }
 
     private void Update()
@@ -102,6 +111,8 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        if(jumpSFX)
+            AudioSource.PlayClipAtPoint(jumpSFX, transform.position);
     }
 
     // resets jump count if on ground
