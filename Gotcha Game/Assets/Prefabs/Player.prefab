@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 875444179111392042}
   - component: {fileID: 7835288048539581399}
   - component: {fileID: 3681016811242388322}
-  - component: {fileID: 9125487393391115375}
   - component: {fileID: 7647671110617826966}
+  - component: {fileID: 9125487393391115375}
+  - component: {fileID: -7471651290580999959}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -121,24 +122,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &9125487393391115375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7531742168814999639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 140ecc441afc765489e9ab22ee69bb61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  moveSpeed: 5
-  moveAcceleration: 2.5
-  knockbackTime: 0.25
-  jumpForce: 5
-  jumpCount: 0
-  gachaController: {fileID: 0}
 --- !u!70 &7647671110617826966
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -176,3 +159,39 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.009357221}
   m_Size: {x: 0.20000002, y: 0.2987144}
   m_Direction: 0
+--- !u!114 &9125487393391115375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531742168814999639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 140ecc441afc765489e9ab22ee69bb61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  moveSpeed: 5
+  moveAcceleration: 2.5
+  knockbackTime: 0.25
+  jumpForce: 5
+  walkSFX: {fileID: 0}
+  jumpSFX: {fileID: 0}
+  jumpCount: 0
+  gachaController: {fileID: 0}
+--- !u!114 &-7471651290580999959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531742168814999639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e07309688d4a4a8e0a682a56f072e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  maxHealth: 3
+  currentHealth: 0
+  immunityTime: 0.25
+  hurtSFX: {fileID: 0}
