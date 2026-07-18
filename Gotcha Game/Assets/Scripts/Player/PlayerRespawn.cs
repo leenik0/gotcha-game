@@ -12,5 +12,10 @@ public class PlayerRespawn : MonoBehaviour
             Debug.Log("Respawning");
             transform.position = respawnPoint.position;
         }
+
+        if (other.CompareTag("Checkpoint"))
+        {
+            respawnPoint = other.transform;
+        }
     }
 }
