@@ -19,7 +19,10 @@ public class LevelManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        respawnPoint = levelStartPosition.position;
+        if (levelStartPosition)
+            respawnPoint = levelStartPosition.position;
+        else
+            respawnPoint = Vector3.zero;
     }
 
     // returns the respawn point so that the player can respawn in the correct location

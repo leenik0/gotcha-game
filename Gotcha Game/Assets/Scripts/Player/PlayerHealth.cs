@@ -5,7 +5,7 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("Health Settings")]
     public int maxHealth = 3;
-    public int currentHealth;
+    public int currentHealth { get; private set; }
 
     public float immunityTime = 0.25f;
     private float lastDamageTime = 0f;
