@@ -569,6 +569,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b08f751a92323b74188bf26244e0fda7, type: 2}
+    - target: {fileID: 7835288048539581399, guid: 9c53836fd8fce9f4dbe4ecce2e3ac42c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d18f47c5b480f524681cfaa5a1d680fa, type: 3}
     - target: {fileID: 9125487393391115375, guid: 9c53836fd8fce9f4dbe4ecce2e3ac42c, type: 3}
       propertyPath: gachaController
       value: 
