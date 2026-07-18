@@ -31,9 +31,6 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;
 
-    //[TODO: DELETE THIS]
-    private int currentAnimState = -1;
-
     //[Grabbed Variables]
     
     // whether the player has been grabbed by a crane
@@ -114,15 +111,6 @@ public class PlayerController : MonoBehaviour
             // jump anim state
             animator.SetInteger("animState", 2);
             animator.Play("PlayerJump", 0);
-        }
-        
-        
-
-        // [DEBUG]
-        if (animator.GetInteger("animState") != currentAnimState)
-        {
-            currentAnimState = animator.GetInteger("animState");
-            Debug.Log("Animation State: " + currentAnimState + ", [1 - idle, 2 - jump, 3 - walk]");
         }
     }
 
