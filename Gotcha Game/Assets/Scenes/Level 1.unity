@@ -2404,6 +2404,9 @@ MonoBehaviour:
   - rewardName: Rare
     rewardRarity: Rare
     rewardSprite: {fileID: 331846025786670775, guid: 99e2fe71fd63ee541848a11ca882e69d, type: 3}
+  - rewardName: Pickle Fella
+    rewardRarity: Homosexual
+    rewardSprite: {fileID: -7686138941976625541, guid: 159c26280c17660469f8ea0d78aa3d5b, type: 3}
   canvas: {fileID: 1283823776}
   title: {fileID: 850811573}
   rarity: {fileID: 968613485}
