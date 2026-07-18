@@ -78,6 +78,39 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "Arrows",
+                    "id": "84e4a205-2bce-47ce-bdf2-dcbe4f0815d3",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "left",
+                    "id": "6d8df9de-24fb-4023-a89a-16bfc7de3219",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "13076800-3704-459a-aa42-09682d90cac8",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "e0d1caa9-b1a0-4d11-9940-4d59238ea1db",
                     "path": "<Keyboard>/space",
