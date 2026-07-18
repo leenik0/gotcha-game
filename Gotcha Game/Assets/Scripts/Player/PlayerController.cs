@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private int jumpCount = 0;
+    private bool isGrounded = false;
 
     private Rigidbody2D rb;
     private PlayerMechanics inputActions;
@@ -27,7 +29,13 @@ public class PlayerController : MonoBehaviour
 
     private bool knockbacked = false;
 
+    private Animator animator;
+
+    //[TODO: DELETE THIS]
+    private int currentAnimState = -1;
+
     //[Grabbed Variables]
+    
     // whether the player has been grabbed by a crane
     private bool grabbed = false;
 
@@ -52,11 +60,13 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         inputActions = new PlayerMechanics();
     }
 
     private void Start()
     {
+        animator.SetInteger("animState", 1);
         if(LevelManager.Instance != null)
             transform.position = LevelManager.Instance.GetRespawnPosition();
     }
@@ -81,9 +91,39 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
-        // if moving on ground, play walk sound
-        if (walkSFX && rb.linearVelocityY == 0 && rb.linearVelocityX != 0)
-            AudioSource.PlayClipAtPoint(walkSFX, transform.position);
+        // walk anim condition
+        if (rb.linearVelocityX != 0 && isGrounded)
+        {
+            // if moving on ground, play walk sound
+            if(walkSFX)
+                AudioSource.PlayClipAtPoint(walkSFX, transform.position);
+            // walk anim state
+            animator.SetInteger("animState", 3);
+            animator.Play("PlayerWalk", 0);
+        }
+        // idle anim condition
+        else if(rb.linearVelocityX == 0 && isGrounded)
+        {
+            // idle anim state
+            animator.SetInteger("animState", 1);
+            animator.Play("PlayerIdle", 0);
+        }
+        // jump anim condition
+        else
+        {
+            // jump anim state
+            animator.SetInteger("animState", 2);
+            animator.Play("PlayerJump", 0);
+        }
+        
+        
+
+        // [DEBUG]
+        if (animator.GetInteger("animState") != currentAnimState)
+        {
+            currentAnimState = animator.GetInteger("animState");
+            Debug.Log("Animation State: " + currentAnimState + ", [1 - idle, 2 - jump, 3 - walk]");
+        }
     }
 
     private void Update()
@@ -113,6 +153,7 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         if(jumpSFX)
             AudioSource.PlayClipAtPoint(jumpSFX, transform.position);
+        isGrounded = false;
     }
 
     // resets jump count if on ground
@@ -123,15 +164,16 @@ public class PlayerController : MonoBehaviour
             if (contact.normal.y > 0.7f && !(rb.linearVelocityY > 0))
             {
                 jumpCount = 0;
+                isGrounded = true;
                 return;
             }
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        Debug.Log("Not Grounded smh");
-    }
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    Debug.Log("Not Grounded smh");
+    //}
 
     private void Flip()
     {
