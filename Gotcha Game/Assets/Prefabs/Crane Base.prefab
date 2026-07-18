@@ -62,8 +62,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -2.7519298, z: 0}
-  m_LocalScale: {x: 0.97492903, y: 0.9374776, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 4.33, y: 4.1636653, z: 4.441349}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7760618695413928606}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -116,8 +116,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.19182372, g: 0.8841623, b: 1, a: 1}
+  m_Sprite: {fileID: -3340060142206363033, guid: 15e5c7ee1b967b444a45f92349e4cf44, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -164,7 +164,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.24, y: 0.23}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -214,7 +214,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -1.28, z: 0}
-  m_LocalScale: {x: 0.3265, y: 3.0988, z: 1}
+  m_LocalScale: {x: 8.45, y: 6.738585, z: 2.174579}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7760618695413928606}
@@ -268,8 +268,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -20
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.5503144, b: 0.5503144, a: 1}
+  m_Sprite: {fileID: 1536438371346274051, guid: a923e31ed7177084b9b63e88d9ae6185, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -316,7 +316,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.06, y: 0.32}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -431,6 +431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoveableObstacle
   pos1: {x: 5, y: 0}
   pos2: {x: -5, y: 0}
+  moveSpeed: 10
 --- !u!1001 &5522054044518060935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -482,6 +483,66 @@ PrefabInstance:
     - target: {fileID: 1626733044498059963, guid: 5e884fdf39991c64a9a65d5a60b37298, type: 3}
       propertyPath: m_Name
       value: SwingingCrane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497195055159365363, guid: 5e884fdf39991c64a9a65d5a60b37298, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497195055159365363, guid: 5e884fdf39991c64a9a65d5a60b37298, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.1636653
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497195055159365363, guid: 5e884fdf39991c64a9a65d5a60b37298, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4.441349
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497195055159365363, guid: 5e884fdf39991c64a9a65d5a60b37298, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637527280169779014, guid: 5e884fdf39991c64a9a65d5a60b37298, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637527280169779014, guid: 5e884fdf39991c64a9a65d5a60b37298, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637527280169779014, guid: 5e884fdf39991c64a9a65d5a60b37298, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4746554183404740443, guid: 5e884fdf39991c64a9a65d5a60b37298, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4746554183404740443, guid: 5e884fdf39991c64a9a65d5a60b37298, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4746554183404740443, guid: 5e884fdf39991c64a9a65d5a60b37298, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4746554183404740443, guid: 5e884fdf39991c64a9a65d5a60b37298, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282393343659393003, guid: 5e884fdf39991c64a9a65d5a60b37298, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282393343659393003, guid: 5e884fdf39991c64a9a65d5a60b37298, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6.738585
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282393343659393003, guid: 5e884fdf39991c64a9a65d5a60b37298, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.174579
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282393343659393003, guid: 5e884fdf39991c64a9a65d5a60b37298, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4607276772136255767, guid: 5e884fdf39991c64a9a65d5a60b37298, type: 3}
