@@ -3,6 +3,9 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(AudioSource))]
 public class Vehicle : MonoBehaviour, Interactable
 {
 
@@ -13,9 +16,12 @@ public class Vehicle : MonoBehaviour, Interactable
     [Header("Audio Settings")]
     public AudioClip jumpSFX;
     public AudioClip rollSFX;
+    public AudioClip thudSFX;
 
     private Rigidbody2D rb;
     private PlayerController player;
+    private Animator animator;
+    private AudioSource audioSource;
 
     private bool isRiding = false;
     private bool isGrounded = false;
@@ -29,6 +35,8 @@ public class Vehicle : MonoBehaviour, Interactable
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         inputActions = new PlayerMechanics();
     }
 
@@ -51,11 +59,18 @@ public class Vehicle : MonoBehaviour, Interactable
         if (tooltip)
             tooltip.gameObject.SetActive(false);
         player = FindAnyObjectByType<PlayerController>();
+        animator.SetInteger("animState", 0);
+        audioSource.clip = rollSFX;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (audioSource.isPlaying == false && isGrounded && (rb.linearVelocityX != 0 || rb.totalTorque != 0))
+            audioSource.Play();
+        if(audioSource.isPlaying == true && (isGrounded == false || (rb.linearVelocityX == 0 && rb.totalTorque == 0)))
+            audioSource.Stop();
 
         if (isRiding == false)
             return;
@@ -66,6 +81,8 @@ public class Vehicle : MonoBehaviour, Interactable
         {
             Jump();
         }
+
+        
 
     }
 
@@ -97,6 +114,7 @@ public class Vehicle : MonoBehaviour, Interactable
         player.SetCanMove(false);
         player.transform.parent = this.transform;
         player.transform.localPosition = new Vector3(0, 0, 0.1f);
+        animator.SetInteger("animState", 1);
         
     }
 
@@ -106,6 +124,7 @@ public class Vehicle : MonoBehaviour, Interactable
         player.SetCanMove(true);
         player.transform.parent = null;
         player.transform.position = transform.position + Vector3.up * 2;
+        animator.SetInteger("animState", 0);
     }
 
     private void Jump()
@@ -118,7 +137,12 @@ public class Vehicle : MonoBehaviour, Interactable
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (thudSFX)
+            AudioSource.PlayClipAtPoint(thudSFX, transform.position);
+    }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
         foreach (ContactPoint2D contact in collision.contacts)
         {
             if (contact.normal.y > 0.5f)
@@ -129,8 +153,8 @@ public class Vehicle : MonoBehaviour, Interactable
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        OnCollisionEnter2D(collision);
+        isGrounded = false;
     }
 }
