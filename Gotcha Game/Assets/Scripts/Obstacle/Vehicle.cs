@@ -111,20 +111,20 @@ public class Vehicle : MonoBehaviour, Interactable
     public void EnterVehicle()
     {
         isRiding = true;
+        animator.SetInteger("animState", 1);
         player.SetCanMove(false);
         player.transform.parent = this.transform;
         player.transform.localPosition = new Vector3(0, 0, 0.1f);
-        animator.SetInteger("animState", 1);
         
     }
 
     public void LeaveVehicle()
     {
         isRiding = false;
+        animator.SetInteger("animState", 0);
         player.SetCanMove(true);
         player.transform.parent = null;
         player.transform.position = transform.position + Vector3.up * 2;
-        animator.SetInteger("animState", 0);
     }
 
     private void Jump()

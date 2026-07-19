@@ -22,7 +22,9 @@ public class Crane : MonoBehaviour
         Debug.Log("Collider Triggered: " + other.name);
         if(other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerController>().Grabbed(this.transform);
+            PlayerController controller = other.GetComponent<PlayerController>();
+            if(controller.CanBeGrabbed())
+                controller.Grabbed(this.transform);
         }
     }
 }

@@ -77,6 +77,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        
         // make this more limited if FixedUpdate is expanded
         if (grabbed || knockbacked || canMove == false)
             return;
@@ -145,6 +147,8 @@ public class PlayerController : MonoBehaviour
         if (grabbedTransform && grabbed)
         {
             transform.position = grabbedTransform.position;
+            animator.SetInteger("animState", 4);
+
         }
     }
 
@@ -178,13 +182,19 @@ public class PlayerController : MonoBehaviour
         transform.localScale = scaler;
     }
 
+    public bool CanBeGrabbed()
+    {
+        return grabbable;
+    }
+
     // called when a crane grabs the player
     public void Grabbed(Transform grabbedTransform)
     {
         if (grabbable == false)
             return;
 
-        this.grabbedTransform = grabbedTransform;
+        animator.SetInteger("animState", 4);
+        
 
         grabbed = true;
         grabbable = false;
@@ -192,13 +202,16 @@ public class PlayerController : MonoBehaviour
         rb.gravityScale = 0f;
         rb.linearVelocity = Vector2.zero;
         transform.position = Vector2.zero;
-
+        
+        this.grabbedTransform = grabbedTransform;
+        
         jumpCount = 0;
     }
 
     // resets the player's movement following the grab
     private void ReleaseGrab()
     {
+        grabbable = false;
         grabbed = false;
         transform.parent = null;
         rb.gravityScale = 1f;
