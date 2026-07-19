@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [Header("SFX Settings")]
     public AudioClip walkSFX;
     public AudioClip jumpSFX;
+    private AudioSource audioSource;
 
 
     [SerializeField]
@@ -61,6 +62,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         inputActions = new PlayerMechanics();
     }
 
@@ -69,6 +71,8 @@ public class PlayerController : MonoBehaviour
         animator.SetInteger("animState", 1);
         if(LevelManager.Instance != null)
             transform.position = LevelManager.Instance.GetRespawnPosition();
+        if (audioSource.clip == null)
+            audioSource.clip = walkSFX;
     }
 
     private void FixedUpdate()
@@ -95,8 +99,8 @@ public class PlayerController : MonoBehaviour
         if (rb.linearVelocityX != 0 && isGrounded)
         {
             // if moving on ground, play walk sound
-            if(walkSFX)
-                AudioSource.PlayClipAtPoint(walkSFX, transform.position);
+            if (audioSource.clip && audioSource.isPlaying == false)
+                audioSource.Play();
             // walk anim state
             animator.SetInteger("animState", 3);
             animator.Play("PlayerWalk", 0);
@@ -104,6 +108,9 @@ public class PlayerController : MonoBehaviour
         // idle anim condition
         else if(rb.linearVelocityX == 0 && isGrounded)
         {
+            if (audioSource.clip && audioSource.isPlaying)
+                audioSource.Stop();
+
             // idle anim state
             animator.SetInteger("animState", 1);
             animator.Play("PlayerIdle", 0);
@@ -111,6 +118,10 @@ public class PlayerController : MonoBehaviour
         // jump anim condition
         else
         {
+
+            if (audioSource.clip && audioSource.isPlaying)
+                audioSource.Stop();
+
             // jump anim state
             animator.SetInteger("animState", 2);
             animator.Play("PlayerJump", 0);
