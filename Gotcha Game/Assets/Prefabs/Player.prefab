@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 7647671110617826966}
   - component: {fileID: 9125487393391115375}
   - component: {fileID: -7471651290580999959}
+  - component: {fileID: 7556629909615526562}
+  - component: {fileID: 5033767795758402008}
+  - component: {fileID: 3415957446781986644}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -178,7 +181,6 @@ MonoBehaviour:
   walkSFX: {fileID: 0}
   jumpSFX: {fileID: 0}
   jumpCount: 0
-  gachaController: {fileID: 0}
 --- !u!114 &-7471651290580999959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +194,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   maxHealth: 3
-  currentHealth: 0
   immunityTime: 0.25
   hurtSFX: {fileID: 0}
+--- !u!95 &7556629909615526562
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531742168814999639}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b08f751a92323b74188bf26244e0fda7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5033767795758402008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531742168814999639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aeb477d6857d1542841d431b659ca26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerRespawn
+  respawnPoint: {fileID: 0}
+--- !u!114 &3415957446781986644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531742168814999639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945eb09adc77634498ef0149058fe9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteract
+  interactRange: 2

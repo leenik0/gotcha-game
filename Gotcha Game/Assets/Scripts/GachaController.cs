@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GachaController : MonoBehaviour
+public class GachaController : MonoBehaviour, Interactable
 {
     public TMP_Text promptText;
     public GachaReward[] rewards;
@@ -44,6 +44,11 @@ public class GachaController : MonoBehaviour
             sprite.sprite = reward.GetSprite();
             StartCoroutine(ShowReward());
         }
+    }
+
+    public void Interact()
+    {
+        Gacha();
     }
 
     private IEnumerator ShowReward()

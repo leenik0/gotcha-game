@@ -22,10 +22,9 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded = false;
 
     private Rigidbody2D rb;
+    private Collider2D playerCollider;
     private PlayerMechanics inputActions;
-    [SerializeField] private GachaController gachaController;
     private bool isFacingRight = true;
-    // private bool isGrounded = true;
 
     private bool knockbacked = false;
 
@@ -44,6 +43,9 @@ public class PlayerController : MonoBehaviour
 
     private Transform grabbedTransform;
 
+    // allows the player to move when true; useful for when otherwise occupied
+    private bool canMove = true;
+
     void OnEnable()
     {
         inputActions.Enable();
@@ -57,6 +59,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
         inputActions = new PlayerMechanics();
     }
@@ -71,7 +74,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         // make this more limited if FixedUpdate is expanded
-        if (grabbed || knockbacked)
+        if (grabbed || knockbacked || canMove == false)
             return;
 
         Vector2 moveInput = inputActions.Default.Move.ReadValue<Vector2>();
@@ -116,6 +119,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (canMove == false)
+            return;
+
         if (inputActions.Default.Jump.triggered && (jumpCount < 2 || grabbed))
         {
 
@@ -123,11 +129,6 @@ public class PlayerController : MonoBehaviour
 
             ReleaseGrab();
             jumpCount++;
-        }
-
-        if (inputActions.Default.Interact.triggered)
-        {
-            gachaController.Gacha();
         }
 
         if (grabbedTransform && grabbed)
@@ -157,11 +158,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-    //private void OnCollisionExit2D(Collision2D collision)
-    //{
-    //    Debug.Log("Not Grounded smh");
-    //}
 
     private void Flip()
     {
@@ -196,6 +192,18 @@ public class PlayerController : MonoBehaviour
         transform.parent = null;
         rb.gravityScale = 1f;
         StartCoroutine(GrabTime());
+    }
+
+    public void SetCanMove(bool canMove)
+    {
+        this.canMove = canMove;
+        playerCollider.enabled = canMove;
+        rb.gravityScale = canMove ? 1f : 0f;
+
+        if(!canMove)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
     }
 
     // waits until the timeTillGrabbable has passed before allowing the player to become grabbable again

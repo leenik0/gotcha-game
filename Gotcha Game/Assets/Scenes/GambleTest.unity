@@ -132,6 +132,8 @@ GameObject:
   - component: {fileID: 133124145}
   - component: {fileID: 133124146}
   - component: {fileID: 133124147}
+  - component: {fileID: 133124148}
+  - component: {fileID: 133124149}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -256,8 +258,9 @@ MonoBehaviour:
   moveAcceleration: 2.5
   knockbackTime: 0.25
   jumpForce: 5
+  walkSFX: {fileID: 0}
+  jumpSFX: {fileID: 0}
   jumpCount: 0
-  gachaController: {fileID: 1831706634}
 --- !u!70 &133124147
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -295,6 +298,41 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.009357221}
   m_Size: {x: 0.20000002, y: 0.2987144}
   m_Direction: 0
+--- !u!95 &133124148
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133124140}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b08f751a92323b74188bf26244e0fda7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &133124149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133124140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945eb09adc77634498ef0149058fe9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteract
+  interactRange: 2
 --- !u!1 &151365855
 GameObject:
   m_ObjectHideFlags: 0
