@@ -4,11 +4,17 @@ using UnityEngine;
 public class CameraBehavior : MonoBehaviour
 {
     public Transform player;
+    public ObjectLauncher objectLauncher;
+
     public float scrollSpeed = 5f;
 
     [Header("Edge Thresholds")]
     [Range(0.6f, 1.0f)] public float rightEdge = 0.95f;
     [Range(0.0f, 0.4f)] public float leftEdge = 0.05f;
+
+    [Header("Launch Settings")]
+    [SerializeField] private float smoothTime = 0.3f;
+    [SerializeField] private Vector3 offset = new Vector3(0f, 0f, -10f);
 
     private Camera cam;
     private bool isMoving = false;
@@ -21,6 +27,11 @@ public class CameraBehavior : MonoBehaviour
     void LateUpdate()
     {
         if (isMoving || player == null) return;
+
+        if (objectLauncher.isLaunching)
+        {
+            transform.position = new Vector3(player.position.x, player.position.y, offset.z);
+        }
 
         Vector3 viewPos = cam.WorldToViewportPoint(player.position);
 
