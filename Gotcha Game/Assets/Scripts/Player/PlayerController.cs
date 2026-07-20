@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D playerCollider;
     private PlayerMechanics inputActions;
+
     private bool isFacingRight = true;
 
     private bool knockbacked = false;
