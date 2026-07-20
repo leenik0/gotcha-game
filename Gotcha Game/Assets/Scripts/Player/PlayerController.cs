@@ -23,13 +23,8 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded = false;
 
     private Rigidbody2D rb;
-<<<<<<< Updated upstream
     private Collider2D playerCollider;
     private PlayerMechanics inputActions;
-=======
-    public PlayerMechanics inputActions;
-    [SerializeField] private GachaController gachaController;
->>>>>>> Stashed changes
     private bool isFacingRight = true;
 
     private bool knockbacked = false;
