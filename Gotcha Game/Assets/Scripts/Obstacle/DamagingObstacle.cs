@@ -15,8 +15,25 @@ public class DamagingObstacle : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (!other.CompareTag("Player"))
+        // bounce
+        Rigidbody2D otherRB = other.GetComponent<Rigidbody2D>();
+        if (otherRB != null && bounceForce != 0)
+        {
+            Vector2 otherDirection = (other.transform.position - transform.position).normalized;
+
+            Debug.Log("OtherDirection: " + otherDirection);
+
+            otherRB.AddForce(otherDirection * bounceForce, ForceMode2D.Impulse);
+        }
+
+
+
+        if (!(other.CompareTag("Player")))
             return;
+        
+        // player knockback upon damage
+        PlayerController playerController = other.GetComponent<PlayerController>();
+        StartCoroutine(playerController.Knockback());
 
         // damage the player
         PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
@@ -26,18 +43,5 @@ public class DamagingObstacle : MonoBehaviour
         playerHealth.Damage(damage);
 
 
-        // player bounce upon damage
-        if (bounceForce == 0)
-            return;
-
-        Rigidbody2D playerRB = other.GetComponent<Rigidbody2D>();
-        PlayerController playerController = other.GetComponent<PlayerController>();
-
-        Vector2 playerDirection = (other.transform.position - transform.position).normalized;
-
-        Debug.Log("PlayerDirection: " + playerDirection);
-
-        playerRB.AddForce(playerDirection * bounceForce, ForceMode2D.Impulse);
-        StartCoroutine(playerController.Knockback());
     }
 }

@@ -12,6 +12,8 @@ public class Vehicle : MonoBehaviour, Interactable
     [Header("Movement Settings")]
     public float moveSpeed = 10f;
     public float jumpForce = 10f;
+    public bool canExit = true;
+    public bool canJump = false;
 
     [Header("Audio Settings")]
     public AudioClip jumpSFX;
@@ -61,6 +63,8 @@ public class Vehicle : MonoBehaviour, Interactable
         player = FindAnyObjectByType<PlayerController>();
         animator.SetInteger("animState", 0);
         audioSource.clip = rollSFX;
+
+        tag = "Vehicle";
     }
 
     // Update is called once per frame
@@ -77,7 +81,7 @@ public class Vehicle : MonoBehaviour, Interactable
         
         player.transform.localPosition = new Vector3(0,0,0.1f);
 
-        if(inputActions.Default.Jump.triggered && isGrounded)
+        if(canJump && inputActions.Default.Jump.triggered && isGrounded)
         {
             Jump();
         }
@@ -104,7 +108,7 @@ public class Vehicle : MonoBehaviour, Interactable
 
         if (isRiding == false)
             EnterVehicle();
-        else
+        else if (canExit)
             LeaveVehicle();
     }
 
