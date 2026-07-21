@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float terminalVelocity = -10f;
     public float knockbackTime = 0.25f;
     public float jumpForce = 5f;
+    public ObjectLauncher objectLauncher;
 
     [Header("SFX Settings")]
     public AudioClip walkSFX;
@@ -34,7 +35,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
 
     //[Grabbed Variables]
-    
+
     // whether the player has been grabbed by a crane
     private bool grabbed = false;
 
@@ -62,17 +63,17 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        inputActions = new PlayerMechanics();
         rb = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
-        inputActions = new PlayerMechanics();
     }
 
     private void Start()
     {
         animator.SetInteger("animState", 1);
-        if(LevelManager.Instance != null)
+        if (LevelManager.Instance != null)
             transform.position = LevelManager.Instance.GetRespawnPosition();
         if (audioSource.clip == null)
             audioSource.clip = walkSFX;
@@ -81,6 +82,8 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         
+
+
         // make this more limited if FixedUpdate is expanded
         if (grabbed || knockbacked || canMove == false)
             return;
@@ -113,7 +116,7 @@ public class PlayerController : MonoBehaviour
             animator.Play("PlayerWalk", 0);
         }
         // idle anim condition
-        else if(rb.linearVelocityX == 0 && isGrounded)
+        else if (rb.linearVelocityX == 0 && isGrounded)
         {
             if (audioSource.clip && audioSource.isPlaying)
                 audioSource.Stop();
@@ -197,6 +200,7 @@ public class PlayerController : MonoBehaviour
             {
                 SetJumpCount(0);
                 isGrounded = true;
+                objectLauncher.isLaunching = false;
                 return;
             }
         }
@@ -223,7 +227,7 @@ public class PlayerController : MonoBehaviour
 
         StopAllCoroutines();
         animator.SetInteger("animState", 4);
-        
+
 
         grabbed = true;
         grabbable = false;
@@ -231,7 +235,7 @@ public class PlayerController : MonoBehaviour
         rb.gravityScale = 0f;
         rb.linearVelocity = Vector2.zero;
         transform.position = Vector2.zero;
-        
+
         this.grabbedTransform = grabbedTransform;
 
         SetJumpCount(0);
@@ -252,7 +256,7 @@ public class PlayerController : MonoBehaviour
         playerCollider.enabled = canMove;
         rb.gravityScale = canMove ? 1f : 0f;
 
-        if(!canMove)
+        if (!canMove)
         {
             rb.linearVelocity = Vector2.zero;
         }

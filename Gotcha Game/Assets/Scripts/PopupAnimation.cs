@@ -3,6 +3,16 @@ using DG.Tweening;
 
 public class PopupAnimation : MonoBehaviour
 {
+
+    void OnEnable()
+    {
+        OpenPopup();
+    }
+
+    void OnDisable()
+    {
+        ClosePopup();
+    }
     private void OpenPopup()
     {
         transform.localScale = Vector3.zero;
