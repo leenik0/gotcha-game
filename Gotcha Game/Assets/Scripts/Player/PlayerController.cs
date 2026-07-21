@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
     public float moveAcceleration = 2.5f; // DELETE THIS IF SOMETHING ELSE WORKS
+    public float terminalVelocity = -10f;
     public float knockbackTime = 0.25f;
     public float jumpForce = 5f;
 
@@ -79,7 +80,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
         
         // make this more limited if FixedUpdate is expanded
         if (grabbed || knockbacked || canMove == false)
@@ -120,15 +120,26 @@ public class PlayerController : MonoBehaviour
             animator.Play("PlayerIdle", 0);
         }
         // jump anim condition
-        else
+        else if (jumpCount <= 1)
         {
 
             if (audioSource.clip && audioSource.isPlaying)
                 audioSource.Stop();
-
+            
             // jump anim state
             animator.SetInteger("animState", 2);
             animator.Play("PlayerJump", 0);
+            
+
+        }
+        else
+        {
+            if (audioSource.clip && audioSource.isPlaying)
+                audioSource.Stop();
+
+            // two jump anim state
+            animator.SetInteger("animState", 5);
+            animator.Play("PlayerJump2", 0);
         }
     }
 
@@ -150,16 +161,27 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = Vector3.Lerp(transform.position, grabbedTransform.position, moveAcceleration);
             animator.SetInteger("animState", 4);
+            animator.Play("PlayerHang", 0);
 
         }
     }
 
     private void Jump()
     {
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        rb.linearVelocityY = 0;
+        rb.AddForceY(jumpForce, ForceMode2D.Impulse);
         if(jumpSFX)
             AudioSource.PlayClipAtPoint(jumpSFX, transform.position);
         isGrounded = false;
+    }
+
+    // sets the jump count variable to force animation and jump numbers
+    public void SetJumpCount(int jumpNum)
+    {
+        jumpCount = jumpNum;
+
+        if (jumpCount != 0)
+            isGrounded = false;
     }
 
     // resets jump count if on ground
@@ -169,7 +191,7 @@ public class PlayerController : MonoBehaviour
         {
             if (contact.normal.y > 0.7f && !(rb.linearVelocityY > 0))
             {
-                jumpCount = 0;
+                SetJumpCount(0);
                 isGrounded = true;
                 return;
             }
@@ -207,8 +229,8 @@ public class PlayerController : MonoBehaviour
         transform.position = Vector2.zero;
         
         this.grabbedTransform = grabbedTransform;
-        
-        jumpCount = 0;
+
+        SetJumpCount(0);
     }
 
     // resets the player's movement following the grab

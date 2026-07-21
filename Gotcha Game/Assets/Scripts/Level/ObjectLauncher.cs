@@ -15,8 +15,12 @@ public class ObjectLauncher : MonoBehaviour
             Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
             if (rb)
             {
+                rb.linearVelocity = Vector2.zero;
                 rb.AddForce(transform.up * launchForce, ForceMode2D.Impulse);
             }
+            PlayerController controller = other.GetComponent<PlayerController>();
+            if (controller)
+                controller.SetJumpCount(1);
         }
 
     }
