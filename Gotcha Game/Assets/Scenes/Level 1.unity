@@ -688,13 +688,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7962815508567967749, guid: 22553f475a5cd0c4eac0d514760a5e43, type: 3}
-      propertyPath: moveSpeed
-      value: 5
+    - target: {fileID: 3681016811242388322, guid: 9c53836fd8fce9f4dbe4ecce2e3ac42c, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8932946217216717448, guid: 22553f475a5cd0c4eac0d514760a5e43, type: 3}
+    - target: {fileID: 5033767795758402008, guid: 9c53836fd8fce9f4dbe4ecce2e3ac42c, type: 3}
+      propertyPath: respawnPoint
+      value: 
+      objectReference: {fileID: 1512350772}
+    - target: {fileID: 7531742168814999639, guid: 9c53836fd8fce9f4dbe4ecce2e3ac42c, type: 3}
       propertyPath: m_Name
       value: Crane Base (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9125487393391115375, guid: 9c53836fd8fce9f4dbe4ecce2e3ac42c, type: 3}
+      propertyPath: terminalVelocity
+      value: -10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
