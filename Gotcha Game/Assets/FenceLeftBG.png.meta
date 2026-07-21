@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4f12d7c9f1541db44ab31b9b7e58da7c
+guid: 5441b98505e49264da03876d00bdac14
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6434966518903514051
-    second: PlayerJump2_0
+      213: 2004200163288549030
+    second: FenceLeftBG_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerJump2_0
+      name: FenceLeftBG_0
       rect:
         serializedVersion: 2
-        x: 6
+        x: 0
         y: 0
-        width: 21
-        height: 29
+        width: 16
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d3c59338b0862b6a0800000000000000
-      internalID: -6434966518903514051
+      spriteID: 6a608970e6950db10800000000000000
+      internalID: 2004200163288549030
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PlayerJump2_0: -6434966518903514051
+      FenceLeftBG_0: 2004200163288549030
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
