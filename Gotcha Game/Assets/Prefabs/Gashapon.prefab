@@ -171,7 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef455d8fffaddf43aa026a53691a32e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Vehicle
-  enterOnStart: 1
+  enterOnStart: 0
+  enterOnCollision: 1
   moveSpeed: 5
   jumpForce: 10
   canExit: 0

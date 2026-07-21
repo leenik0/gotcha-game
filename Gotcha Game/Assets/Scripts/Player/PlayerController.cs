@@ -253,7 +253,7 @@ public class PlayerController : MonoBehaviour
     public void SetCanMove(bool canMove)
     {
         this.canMove = canMove;
-        playerCollider.enabled = canMove;
+        playerCollider.isTrigger = !canMove;
         rb.gravityScale = canMove ? 1f : 0f;
 
         if (!canMove)
