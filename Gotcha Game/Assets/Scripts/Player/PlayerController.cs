@@ -88,7 +88,10 @@ public class PlayerController : MonoBehaviour
         Vector2 moveInput = inputActions.Default.Move.ReadValue<Vector2>();
 
         //rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocityY); // OG Movement Code
-        rb.linearVelocity = new Vector2(Mathf.Lerp(rb.linearVelocityX, moveInput.x * moveSpeed, moveAcceleration), rb.linearVelocityY); // New Movement Code to Allow for Knockback/Lerping
+        //rb.linearVelocity = new Vector2(Mathf.Lerp(rb.linearVelocityX, moveInput.x * moveSpeed, moveAcceleration), rb.linearVelocityY); // New Movement Code to Allow for Knockback/Lerping
+        float moveValX = Mathf.Lerp(rb.linearVelocityX, moveInput.x * moveSpeed, moveAcceleration);
+        rb.linearVelocityX = moveValX;
+
 
         if (moveInput.x > 0 && !isFacingRight)
         {
@@ -173,6 +176,7 @@ public class PlayerController : MonoBehaviour
         if(jumpSFX)
             AudioSource.PlayClipAtPoint(jumpSFX, transform.position);
         isGrounded = false;
+        
     }
 
     // sets the jump count variable to force animation and jump numbers
