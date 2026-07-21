@@ -55,8 +55,13 @@ public class PlayerInteract : MonoBehaviour
             float tempDistance = Vector2.Distance(transform.position, collider.transform.position);
             if (tempDistance < minDistance)
             {
+                Interactable tempInteractable = collider.GetComponent<Interactable>();
+                if (tempInteractable.GetType() == typeof(Vehicle) && ((Vehicle)tempInteractable).GetIsRiding())
+                    continue;
+
+
                 minDistance = tempDistance;
-                nearestInteractable = collider.GetComponent<Interactable>();
+                nearestInteractable = tempInteractable;
             }
         }
     }
