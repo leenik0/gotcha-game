@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using Unity.Cinemachine;
 
 public class CameraBehavior : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class CameraBehavior : MonoBehaviour
 
         if (objectLauncher.isLaunching)
         {
-            transform.position = new Vector3(player.position.x, player.position.y, offset.z);
+            cam.transform.position = new Vector3(cam.transform.position.x, player.position.y, cam.transform.position.z);
         }
 
         Vector3 viewPos = cam.WorldToViewportPoint(player.position);

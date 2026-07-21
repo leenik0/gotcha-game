@@ -10,7 +10,7 @@ public class GachaController : MonoBehaviour, Interactable
     public GachaReward[] rewards;
 
     [Header("Reward Menu")]
-    public GameObject canvas;
+    public GameObject rewardPanel;
     public TMP_Text title;
     public TMP_Text rarity;
     public Image sprite;
@@ -53,11 +53,11 @@ public class GachaController : MonoBehaviour, Interactable
 
     private IEnumerator ShowReward()
     {
-        canvas.transform.localScale = Vector3.zero;
-        canvas.transform.DOScale(1f, 0.5f).SetEase(Ease.OutBack);
-        canvas.SetActive(true);
+        rewardPanel.transform.localScale = Vector3.zero;
+        rewardPanel.transform.DOScale(1f, 0.5f).SetEase(Ease.OutBack);
+        rewardPanel.SetActive(true);
         yield return new WaitForSeconds(3f);
-        canvas.transform.DOScale(0f, 0.3f).SetEase(Ease.InBack).OnComplete(() => { canvas.SetActive(false); });
+        rewardPanel.transform.DOScale(0f, 0.3f).SetEase(Ease.InBack).OnComplete(() => { rewardPanel.SetActive(false); });
         canGacha = true;
     }
 }
