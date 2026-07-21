@@ -8,14 +8,16 @@ public class CameraBehavior : MonoBehaviour
     public ObjectLauncher objectLauncher;
 
     public float scrollSpeed = 5f;
+    public bool isNotPlinko = true;
 
     [Header("Edge Thresholds")]
     [Range(0.6f, 1.0f)] public float rightEdge = 0.95f;
     [Range(0.0f, 0.4f)] public float leftEdge = 0.05f;
+    private Vector3 velocity = Vector3.zero;
 
     [Header("Launch Settings")]
-    [SerializeField] private float smoothTime = 0.3f;
-    [SerializeField] private Vector3 offset = new Vector3(0f, 0f, -10f);
+    [SerializeField] private float smoothTime = 0.01f;
+    [SerializeField] private Vector3 offset = new(0f, 0f, -10f);
 
     private Camera cam;
     private bool isMoving = false;
@@ -31,18 +33,27 @@ public class CameraBehavior : MonoBehaviour
 
         if (objectLauncher.isLaunching)
         {
-            cam.transform.position = new Vector3(cam.transform.position.x, player.position.y, cam.transform.position.z);
+            Vector3 launchTarget = new(transform.position.x, player.position.y, transform.position.z);
+            cam.transform.position = Vector3.SmoothDamp(transform.position, launchTarget, ref velocity, smoothTime);
         }
 
-        Vector3 viewPos = cam.WorldToViewportPoint(player.position);
+        if (isNotPlinko)
+        {
+            Vector3 viewPos = cam.WorldToViewportPoint(player.position);
 
-        if (viewPos.x > rightEdge)
-        {
-            StartCoroutine(ScrollScreen(true));
+            if (viewPos.x > rightEdge)
+            {
+                StartCoroutine(ScrollScreen(true));
+            }
+            else if (viewPos.x < leftEdge)
+            {
+                StartCoroutine(ScrollScreen(false));
+            }
         }
-        else if (viewPos.x < leftEdge)
+        else
         {
-            StartCoroutine(ScrollScreen(false));
+            Vector3 targetTarget = new(player.position.x, player.position.y, offset.z);
+            transform.position = Vector3.SmoothDamp(transform.position, targetTarget, ref velocity, smoothTime);
         }
     }
 

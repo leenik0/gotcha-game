@@ -54,6 +54,8 @@ public class GachaController : MonoBehaviour, Interactable
     private IEnumerator ShowReward()
     {
         rewardPanel.transform.localScale = Vector3.zero;
+        rewardPanel.transform.localRotation = Quaternion.identity;
+        rewardPanel.transform.DOLocalRotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360).SetEase(Ease.OutQuad);
         rewardPanel.transform.DOScale(1f, 0.5f).SetEase(Ease.OutBack);
         rewardPanel.SetActive(true);
         yield return new WaitForSeconds(3f);
