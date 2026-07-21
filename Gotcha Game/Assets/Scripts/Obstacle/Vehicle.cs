@@ -10,6 +10,7 @@ public class Vehicle : MonoBehaviour, Interactable
 {
 
     public bool enterOnStart = false;
+    public bool enterOnCollision = false;
     [Header("Movement Settings")]
     public float moveSpeed = 10f;
     public float jumpForce = 10f;
@@ -123,6 +124,7 @@ public class Vehicle : MonoBehaviour, Interactable
         player.SetCanMove(false);
         player.transform.parent = this.transform;
         player.transform.localPosition = new Vector3(0, 0, 0.1f);
+        rb.linearVelocity = Vector2.zero;
         
     }
 
@@ -152,6 +154,9 @@ public class Vehicle : MonoBehaviour, Interactable
     {
         if (thudSFX)
             AudioSource.PlayClipAtPoint(thudSFX, transform.position);
+
+        if (enterOnCollision)
+            EnterVehicle();
     }
 
     private void OnCollisionStay2D(Collision2D collision)
