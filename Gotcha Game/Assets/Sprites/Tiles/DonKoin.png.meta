@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4f12d7c9f1541db44ab31b9b7e58da7c
+guid: 8bf2bc79f6007ed4eb27d79940068521
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6434966518903514051
-    second: PlayerJump2_0
+      213: -5420165604342680232
+    second: DonKoin_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerJump2_0
+      name: DonKoin_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 0
-        width: 21
-        height: 29
+        x: 2
+        y: 2
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d3c59338b0862b6a0800000000000000
-      internalID: -6434966518903514051
+      spriteID: 8553d51a914b7c4b0800000000000000
+      internalID: -5420165604342680232
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PlayerJump2_0: -6434966518903514051
+      DonKoin_0: -5420165604342680232
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
