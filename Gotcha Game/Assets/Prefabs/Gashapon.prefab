@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6306886583367517266}
   m_Layer: 0
   m_Name: Gashapon
-  m_TagString: Untagged
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,8 +171,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef455d8fffaddf43aa026a53691a32e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Vehicle
+  enterOnStart: 1
   moveSpeed: 5
   jumpForce: 10
+  canExit: 0
+  canJump: 0
   jumpSFX: {fileID: 8300000, guid: eee749bbbfd90fe4ab9e37cac6f1d777, type: 3}
   rollSFX: {fileID: 8300000, guid: 6b40eeed53544af41b59ca854c2a49ed, type: 3}
   thudSFX: {fileID: 8300000, guid: 0a0019cdf45e8534190f92040f1c7769, type: 3}

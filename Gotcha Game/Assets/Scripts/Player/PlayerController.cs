@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     // whether the player has been grabbed by a crane
     private bool grabbed = false;
 
+    [SerializeField]
     // whether the player can be grabbed by a crane
     private bool grabbable = true;
 
@@ -148,7 +149,7 @@ public class PlayerController : MonoBehaviour
 
         if (grabbedTransform && grabbed)
         {
-            transform.position = grabbedTransform.position;
+            transform.position = Vector3.Lerp(transform.position, grabbedTransform.position, moveAcceleration);
             animator.SetInteger("animState", 4);
 
         }
@@ -187,7 +188,7 @@ public class PlayerController : MonoBehaviour
 
     public bool CanBeGrabbed()
     {
-        return grabbable;
+        return grabbable && grabbed == false;
     }
 
     // called when a crane grabs the player
@@ -196,6 +197,7 @@ public class PlayerController : MonoBehaviour
         if (grabbable == false)
             return;
 
+        StopAllCoroutines();
         animator.SetInteger("animState", 4);
 
 
@@ -214,7 +216,6 @@ public class PlayerController : MonoBehaviour
     // resets the player's movement following the grab
     private void ReleaseGrab()
     {
-        grabbable = false;
         grabbed = false;
         transform.parent = null;
         rb.gravityScale = 1f;

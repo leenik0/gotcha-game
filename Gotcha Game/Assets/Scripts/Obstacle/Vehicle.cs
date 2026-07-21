@@ -9,9 +9,12 @@ using UnityEngine;
 public class Vehicle : MonoBehaviour, Interactable
 {
 
+    public bool enterOnStart = false;
     [Header("Movement Settings")]
     public float moveSpeed = 10f;
     public float jumpForce = 10f;
+    public bool canExit = true;
+    public bool canJump = false;
 
     [Header("Audio Settings")]
     public AudioClip jumpSFX;
@@ -61,6 +64,11 @@ public class Vehicle : MonoBehaviour, Interactable
         player = FindAnyObjectByType<PlayerController>();
         animator.SetInteger("animState", 0);
         audioSource.clip = rollSFX;
+
+        tag = "Vehicle";
+
+        if (enterOnStart)
+            EnterVehicle();
     }
 
     // Update is called once per frame
@@ -77,7 +85,7 @@ public class Vehicle : MonoBehaviour, Interactable
         
         player.transform.localPosition = new Vector3(0,0,0.1f);
 
-        if(inputActions.Default.Jump.triggered && isGrounded)
+        if(canJump && inputActions.Default.Jump.triggered && isGrounded)
         {
             Jump();
         }
@@ -104,7 +112,7 @@ public class Vehicle : MonoBehaviour, Interactable
 
         if (isRiding == false)
             EnterVehicle();
-        else
+        else if (canExit)
             LeaveVehicle();
     }
 
@@ -118,13 +126,18 @@ public class Vehicle : MonoBehaviour, Interactable
         
     }
 
+    public bool GetIsRiding()
+    {
+        return isRiding;
+    }
+
     public void LeaveVehicle()
     {
         isRiding = false;
         animator.SetInteger("animState", 0);
         player.SetCanMove(true);
         player.transform.parent = null;
-        player.transform.position = transform.position + Vector3.up * 2;
+        player.transform.position = transform.position;
     }
 
     private void Jump()
