@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8caf852c0bee1d24b98758662fd2fb5c
+guid: a29c533aaf8703343b58f29c27163b07
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6367540243467136908
-    second: DonKoin3_0
+      213: 8957324059118975939
+    second: images_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DonKoin3_0
+      name: images_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 554
+        height: 554
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 470132f92e3f1a7a0800000000000000
-      internalID: -6367540243467136908
+      spriteID: 3cbb8d916cece4c70800000000000000
+      internalID: 8957324059118975939
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      DonKoin3_0: -6367540243467136908
+      images_0: 8957324059118975939
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
