@@ -623,22 +623,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589393143}
     m_Modifications:
-    - target: {fileID: 3681016811242388322, guid: 9c53836fd8fce9f4dbe4ecce2e3ac42c, type: 3}
-      propertyPath: m_GravityScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5033767795758402008, guid: 9c53836fd8fce9f4dbe4ecce2e3ac42c, type: 3}
-      propertyPath: respawnPoint
-      value: 
-      objectReference: {fileID: 1512350772}
-    - target: {fileID: 7531742168814999639, guid: 9c53836fd8fce9f4dbe4ecce2e3ac42c, type: 3}
-      propertyPath: m_Name
-      value: Crane Base (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 9125487393391115375, guid: 9c53836fd8fce9f4dbe4ecce2e3ac42c, type: 3}
-      propertyPath: terminalVelocity
-      value: -10
-      objectReference: {fileID: 0}
     - target: {fileID: 7205928662946687587, guid: 22553f475a5cd0c4eac0d514760a5e43, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.05
@@ -678,6 +662,22 @@ PrefabInstance:
     - target: {fileID: 7205928662946687587, guid: 22553f475a5cd0c4eac0d514760a5e43, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681016811242388322, guid: 9c53836fd8fce9f4dbe4ecce2e3ac42c, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033767795758402008, guid: 9c53836fd8fce9f4dbe4ecce2e3ac42c, type: 3}
+      propertyPath: respawnPoint
+      value: 
+      objectReference: {fileID: 1512350772}
+    - target: {fileID: 7531742168814999639, guid: 9c53836fd8fce9f4dbe4ecce2e3ac42c, type: 3}
+      propertyPath: m_Name
+      value: Crane Base (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9125487393391115375, guid: 9c53836fd8fce9f4dbe4ecce2e3ac42c, type: 3}
+      propertyPath: terminalVelocity
+      value: -10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9395,24 +9395,24 @@ MonoBehaviour:
   promptText: {fileID: 1436961041}
   rewards:
   - rewardName: Common
-    rewardRarity: Common
+    rewardRarity: 0
     rewardSprite: {fileID: -7327663116236986074, guid: ca21040e4ce3fe4419cbb475ed2fa9f4, type: 3}
   - rewardName: Common
-    rewardRarity: Common
+    rewardRarity: 0
     rewardSprite: {fileID: -7327663116236986074, guid: ca21040e4ce3fe4419cbb475ed2fa9f4, type: 3}
   - rewardName: Rare
-    rewardRarity: Rare
+    rewardRarity: 0
     rewardSprite: {fileID: 331846025786670775, guid: 99e2fe71fd63ee541848a11ca882e69d, type: 3}
   - rewardName: Pickle Fella
-    rewardRarity: Homosexual
+    rewardRarity: 0
     rewardSprite: {fileID: -7686138941976625541, guid: 159c26280c17660469f8ea0d78aa3d5b, type: 3}
   audioSource: {fileID: 0}
   leverClip: {fileID: 0}
   rattleClip: {fileID: 0}
   fanfare: {fileID: 0}
   cheerClip: {fileID: 0}
-  coinAmountNeeded: 5
   rewardPanel: {fileID: 1922151473}
+  panelImage: {fileID: 0}
   title: {fileID: 850811573}
   rarity: {fileID: 968613485}
   sprite: {fileID: 1359899660}
@@ -10326,24 +10326,24 @@ MonoBehaviour:
   promptText: {fileID: 1436961041}
   rewards:
   - rewardName: Common
-    rewardRarity: Common
+    rewardRarity: 0
     rewardSprite: {fileID: -7327663116236986074, guid: ca21040e4ce3fe4419cbb475ed2fa9f4, type: 3}
   - rewardName: Common
-    rewardRarity: Common
+    rewardRarity: 0
     rewardSprite: {fileID: -7327663116236986074, guid: ca21040e4ce3fe4419cbb475ed2fa9f4, type: 3}
   - rewardName: Rare
-    rewardRarity: Rare
+    rewardRarity: 0
     rewardSprite: {fileID: 331846025786670775, guid: 99e2fe71fd63ee541848a11ca882e69d, type: 3}
   - rewardName: Pickle Fella
-    rewardRarity: Homosexual
+    rewardRarity: 0
     rewardSprite: {fileID: -7686138941976625541, guid: 159c26280c17660469f8ea0d78aa3d5b, type: 3}
   audioSource: {fileID: 0}
-  leverClip: {fileID: 0}
-  rattleClip: {fileID: 0}
-  fanfare: {fileID: 0}
-  cheerClip: {fileID: 0}
-  coinAmountNeeded: 5
+  leverClip: {fileID: 8300000, guid: 4204e7e5eafe750469b7e8a155661e0d, type: 3}
+  rattleClip: {fileID: 8300000, guid: 9faac5bbada93d24d93ae0e118e64bdf, type: 3}
+  fanfare: {fileID: 8300000, guid: fc7426f06f6884f418bbb626992c495d, type: 3}
+  cheerClip: {fileID: 8300000, guid: 543222155c8135a40910d892403451e2, type: 3}
   rewardPanel: {fileID: 1922151473}
+  panelImage: {fileID: 734653387}
   title: {fileID: 850811573}
   rarity: {fileID: 968613485}
   sprite: {fileID: 1359899660}

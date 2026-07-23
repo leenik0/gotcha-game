@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+
 
 
         // make this more limited if FixedUpdate is expanded
@@ -131,11 +131,11 @@ public class PlayerController : MonoBehaviour
 
             if (audioSource.clip && audioSource.isPlaying)
                 audioSource.Stop();
-            
+
             // jump anim state
             animator.SetInteger("animState", 2);
             animator.Play("PlayerJump", 0);
-            
+
 
         }
         else
@@ -176,10 +176,10 @@ public class PlayerController : MonoBehaviour
     {
         rb.linearVelocityY = 0;
         rb.AddForceY(jumpForce, ForceMode2D.Impulse);
-        if(jumpSFX)
+        if (jumpSFX)
             AudioSource.PlayClipAtPoint(jumpSFX, transform.position);
         isGrounded = false;
-        
+
     }
 
     // sets the jump count variable to force animation and jump numbers
@@ -200,7 +200,7 @@ public class PlayerController : MonoBehaviour
             {
                 SetJumpCount(0);
                 isGrounded = true;
-                objectLauncher.isLaunching = false;
+                if (objectLauncher) { objectLauncher.isLaunching = false; }
                 return;
             }
         }
