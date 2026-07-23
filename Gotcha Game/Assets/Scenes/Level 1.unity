@@ -12618,22 +12618,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 494986080713121411, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
-      propertyPath: m_Color.a
-      value: 0.57254905
-      objectReference: {fileID: 0}
-    - target: {fileID: 494986080713121411, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
-      propertyPath: m_Color.b
-      value: 0.81059736
-      objectReference: {fileID: 0}
-    - target: {fileID: 494986080713121411, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
-      propertyPath: m_Color.g
-      value: 0.003144443
-      objectReference: {fileID: 0}
-    - target: {fileID: 494986080713121411, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 964481017945473349, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -12714,81 +12698,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2042777132516917661, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
+    - target: {fileID: 2488244160021860526, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
+      propertyPath: m_TagString
+      value: Coin Countah
       objectReference: {fileID: 0}
-    - target: {fileID: 2042777132516917661, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2042777132516917661, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 2042777132516917661, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -73.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5852012638230560325, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6117828032396985228, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6117828032396985228, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6117828032396985228, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 6117828032396985228, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -175.29999
+    - target: {fileID: 2929488856308324662, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
+      propertyPath: m_text
+      value: 0 Coins
       objectReference: {fileID: 0}
     - target: {fileID: 6207796200630520948, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
       propertyPath: m_Name
       value: Pause Menu Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 6207796200630520948, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7572190250796952615, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7572190250796952615, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7572190250796952615, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7572190250796952615, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -124.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7843809603439549554, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7843809603439549554, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7843809603439549554, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7843809603439549554, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -22.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
