@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -73,7 +74,15 @@ public class VehicleTerminal : MonoBehaviour, Interactable
         }
 
         if (door)
-            door.SetActive(false);
+            StartCoroutine(OpenDoor());
 
+    }
+
+    IEnumerator OpenDoor()
+    {
+        door.SetActive(false);
+        yield return new WaitUntil(() => player.transform.position.y < door.transform.position.y);
+        yield return new WaitForSeconds(0.25f);
+        door.SetActive(true);
     }
 }
