@@ -9,6 +9,7 @@ public class GachaController : MonoBehaviour, Interactable
 {
     public TMP_Text promptText;
     public GachaReward[] rewards;
+    public int coinAmountNeeded = 5;
 
     [Header("Audio")]
     public AudioSource audioSource;
@@ -25,10 +26,12 @@ public class GachaController : MonoBehaviour, Interactable
     public Image sprite;
 
     private bool canGacha = true;
+    private PlayerInventory inventory;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        inventory = FindAnyObjectByType<PlayerInventory>();
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -62,34 +65,53 @@ public class GachaController : MonoBehaviour, Interactable
 
     public void Interact()
     {
-        Gacha();
+        if(inventory.GetCoinBalance() >= coinAmountNeeded)
+        {
+            inventory.SpendCoins(coinAmountNeeded);
+            Gacha();
+
+        }
     }
 
     private IEnumerator ShowReward()
     {
         // Click SFX
-        audioSource.clip = leverClip;
-        audioSource.Play();
-        yield return new WaitUntil(() => audioSource.time >= leverClip.length);
+        if(leverClip)
+        {
+            audioSource.clip = leverClip;
+            audioSource.Play();
+            yield return new WaitUntil(() => audioSource.time >= leverClip.length);
+        }
 
         // Rattle SFX
-        audioSource.clip = rattleClip;
-        audioSource.Play();
-        yield return new WaitUntil(() => audioSource.time >= rattleClip.length);
-        yield return new WaitForSeconds(0.5f);
+        if(rattleClip)
+        {
+            audioSource.clip = rattleClip;
+            audioSource.Play();
+            yield return new WaitUntil(() => audioSource.time >= rattleClip.length);
+            yield return new WaitForSeconds(0.5f);
+        }
 
         // Animation
-        audioSource.clip = fanfare;
-        audioSource.Play();
+        if(fanfare)
+        {
+            audioSource.clip = fanfare;
+            audioSource.Play();
+        }
         rewardPanel.transform.localScale = Vector3.zero;
         rewardPanel.transform.localRotation = Quaternion.identity;
         rewardPanel.transform.DOLocalRotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360).SetEase(Ease.OutQuad);
         rewardPanel.transform.DOScale(1f, 0.5f).SetEase(Ease.OutBack);
         rewardPanel.SetActive(true);
         
-        yield return new WaitUntil(() => audioSource.time >= fanfare.length);
-        audioSource.clip = cheerClip;
-        audioSource.Play();
+        if(fanfare)
+            yield return new WaitUntil(() => audioSource.time >= fanfare.length);
+        
+        if(cheerClip)
+        {
+            audioSource.clip = cheerClip;
+            audioSource.Play();
+        }
 
         yield return new WaitForSeconds(3f);
 
