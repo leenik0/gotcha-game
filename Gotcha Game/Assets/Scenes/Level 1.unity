@@ -2015,7 +2015,7 @@ GameObject:
   - component: {fileID: 734653388}
   - component: {fileID: 734653387}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Panel Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3056,6 +3056,63 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1001 &1145244575
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 715064325640988392, guid: 4ce9bbfe6e1be644c8b4a5e900994d71, type: 3}
+      propertyPath: m_Name
+      value: Donkoin_gold
+      objectReference: {fileID: 0}
+    - target: {fileID: 6907431180547369936, guid: 4ce9bbfe6e1be644c8b4a5e900994d71, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 100.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 6907431180547369936, guid: 4ce9bbfe6e1be644c8b4a5e900994d71, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.1017518
+      objectReference: {fileID: 0}
+    - target: {fileID: 6907431180547369936, guid: 4ce9bbfe6e1be644c8b4a5e900994d71, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6907431180547369936, guid: 4ce9bbfe6e1be644c8b4a5e900994d71, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6907431180547369936, guid: 4ce9bbfe6e1be644c8b4a5e900994d71, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6907431180547369936, guid: 4ce9bbfe6e1be644c8b4a5e900994d71, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6907431180547369936, guid: 4ce9bbfe6e1be644c8b4a5e900994d71, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6907431180547369936, guid: 4ce9bbfe6e1be644c8b4a5e900994d71, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6907431180547369936, guid: 4ce9bbfe6e1be644c8b4a5e900994d71, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6907431180547369936, guid: 4ce9bbfe6e1be644c8b4a5e900994d71, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4ce9bbfe6e1be644c8b4a5e900994d71, type: 3}
 --- !u!1 &1151575545
 GameObject:
   m_ObjectHideFlags: 0
@@ -7848,8 +7905,8 @@ Transform:
   m_GameObject: {fileID: 1255738972}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 17.529997, y: -10.9632, z: 0}
-  m_LocalScale: {x: 24.842344, y: 0.5, z: 1}
+  m_LocalPosition: {x: 17.529997, y: -4.1911, z: 0}
+  m_LocalScale: {x: 38.38639, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1151575546}
@@ -8750,6 +8807,63 @@ Transform:
   - {fileID: 1162843996}
   m_Father: {fileID: 1243726381}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1591415537
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2403706307262051130, guid: 44c2f426d5033f34bbea2857b83ef235, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 74.2394
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403706307262051130, guid: 44c2f426d5033f34bbea2857b83ef235, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.1702042
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403706307262051130, guid: 44c2f426d5033f34bbea2857b83ef235, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403706307262051130, guid: 44c2f426d5033f34bbea2857b83ef235, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403706307262051130, guid: 44c2f426d5033f34bbea2857b83ef235, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403706307262051130, guid: 44c2f426d5033f34bbea2857b83ef235, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403706307262051130, guid: 44c2f426d5033f34bbea2857b83ef235, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403706307262051130, guid: 44c2f426d5033f34bbea2857b83ef235, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403706307262051130, guid: 44c2f426d5033f34bbea2857b83ef235, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403706307262051130, guid: 44c2f426d5033f34bbea2857b83ef235, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8520045057356237390, guid: 44c2f426d5033f34bbea2857b83ef235, type: 3}
+      propertyPath: m_Name
+      value: Donkoin (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 44c2f426d5033f34bbea2857b83ef235, type: 3}
 --- !u!1 &1627107383
 GameObject:
   m_ObjectHideFlags: 0
@@ -9395,24 +9509,25 @@ MonoBehaviour:
   promptText: {fileID: 1436961041}
   rewards:
   - rewardName: Common
-    rewardRarity: Common
+    rewardRarity: 0
     rewardSprite: {fileID: -7327663116236986074, guid: ca21040e4ce3fe4419cbb475ed2fa9f4, type: 3}
   - rewardName: Common
-    rewardRarity: Common
+    rewardRarity: 0
     rewardSprite: {fileID: -7327663116236986074, guid: ca21040e4ce3fe4419cbb475ed2fa9f4, type: 3}
   - rewardName: Rare
-    rewardRarity: Rare
+    rewardRarity: 0
     rewardSprite: {fileID: 331846025786670775, guid: 99e2fe71fd63ee541848a11ca882e69d, type: 3}
   - rewardName: Pickle Fella
-    rewardRarity: Homosexual
+    rewardRarity: 0
     rewardSprite: {fileID: -7686138941976625541, guid: 159c26280c17660469f8ea0d78aa3d5b, type: 3}
+  coinAmountNeeded: 0
   audioSource: {fileID: 0}
   leverClip: {fileID: 0}
   rattleClip: {fileID: 0}
   fanfare: {fileID: 0}
   cheerClip: {fileID: 0}
-  coinAmountNeeded: 5
   rewardPanel: {fileID: 1922151473}
+  panelImage: {fileID: 0}
   title: {fileID: 850811573}
   rarity: {fileID: 968613485}
   sprite: {fileID: 1359899660}
@@ -9925,6 +10040,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1922151473}
   m_CullTransparentMesh: 1
+--- !u!1001 &1978607942
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7082775703078715881, guid: 5f5a5c606d78e8946b70a03ecd321405, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 55.302162
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082775703078715881, guid: 5f5a5c606d78e8946b70a03ecd321405, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.9514823
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082775703078715881, guid: 5f5a5c606d78e8946b70a03ecd321405, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082775703078715881, guid: 5f5a5c606d78e8946b70a03ecd321405, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082775703078715881, guid: 5f5a5c606d78e8946b70a03ecd321405, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082775703078715881, guid: 5f5a5c606d78e8946b70a03ecd321405, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082775703078715881, guid: 5f5a5c606d78e8946b70a03ecd321405, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082775703078715881, guid: 5f5a5c606d78e8946b70a03ecd321405, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082775703078715881, guid: 5f5a5c606d78e8946b70a03ecd321405, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082775703078715881, guid: 5f5a5c606d78e8946b70a03ecd321405, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9077266362940104729, guid: 5f5a5c606d78e8946b70a03ecd321405, type: 3}
+      propertyPath: m_Name
+      value: Donkoin_woman (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5f5a5c606d78e8946b70a03ecd321405, type: 3}
 --- !u!1 &1985138727
 GameObject:
   m_ObjectHideFlags: 0
@@ -10326,24 +10498,25 @@ MonoBehaviour:
   promptText: {fileID: 1436961041}
   rewards:
   - rewardName: Common
-    rewardRarity: Common
+    rewardRarity: 0
     rewardSprite: {fileID: -7327663116236986074, guid: ca21040e4ce3fe4419cbb475ed2fa9f4, type: 3}
-  - rewardName: Common
-    rewardRarity: Common
+  - rewardName: Epic Games
+    rewardRarity: 1
     rewardSprite: {fileID: -7327663116236986074, guid: ca21040e4ce3fe4419cbb475ed2fa9f4, type: 3}
   - rewardName: Rare
-    rewardRarity: Rare
+    rewardRarity: 2
     rewardSprite: {fileID: 331846025786670775, guid: 99e2fe71fd63ee541848a11ca882e69d, type: 3}
   - rewardName: Pickle Fella
-    rewardRarity: Homosexual
+    rewardRarity: 3
     rewardSprite: {fileID: -7686138941976625541, guid: 159c26280c17660469f8ea0d78aa3d5b, type: 3}
+  coinAmountNeeded: 5
   audioSource: {fileID: 0}
   leverClip: {fileID: 0}
   rattleClip: {fileID: 0}
   fanfare: {fileID: 0}
   cheerClip: {fileID: 0}
-  coinAmountNeeded: 5
   rewardPanel: {fileID: 1922151473}
+  panelImage: {fileID: 734653387}
   title: {fileID: 850811573}
   rarity: {fileID: 968613485}
   sprite: {fileID: 1359899660}
@@ -10601,6 +10774,63 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1001 &2100133018
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2403706307262051130, guid: 44c2f426d5033f34bbea2857b83ef235, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 77.47655
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403706307262051130, guid: 44c2f426d5033f34bbea2857b83ef235, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.280303
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403706307262051130, guid: 44c2f426d5033f34bbea2857b83ef235, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403706307262051130, guid: 44c2f426d5033f34bbea2857b83ef235, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403706307262051130, guid: 44c2f426d5033f34bbea2857b83ef235, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403706307262051130, guid: 44c2f426d5033f34bbea2857b83ef235, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403706307262051130, guid: 44c2f426d5033f34bbea2857b83ef235, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403706307262051130, guid: 44c2f426d5033f34bbea2857b83ef235, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403706307262051130, guid: 44c2f426d5033f34bbea2857b83ef235, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403706307262051130, guid: 44c2f426d5033f34bbea2857b83ef235, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8520045057356237390, guid: 44c2f426d5033f34bbea2857b83ef235, type: 3}
+      propertyPath: m_Name
+      value: Donkoin (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 44c2f426d5033f34bbea2857b83ef235, type: 3}
 --- !u!1001 &3171936848634361728
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10742,3 +10972,7 @@ SceneRoots:
   - {fileID: 3171936848634361728}
   - {fileID: 322484231}
   - {fileID: 544453683}
+  - {fileID: 1978607942}
+  - {fileID: 1591415537}
+  - {fileID: 2100133018}
+  - {fileID: 1145244575}
