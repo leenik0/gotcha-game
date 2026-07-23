@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8caf852c0bee1d24b98758662fd2fb5c
+guid: 4f2ce86fe35a9954386ef7d2ece2f440
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6367540243467136908
-    second: DonKoin3_0
+      213: -2335988935324387850
+    second: PlinkoRedRight_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,12 +113,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DonKoin3_0
+      name: PlinkoRedRight_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 9
         y: 0
-        width: 16
+        width: 7
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 470132f92e3f1a7a0800000000000000
-      internalID: -6367540243467136908
+      spriteID: 6f53fbe9076e49fd0800000000000000
+      internalID: -2335988935324387850
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      DonKoin3_0: -6367540243467136908
+      PlinkoRedRight_0: -2335988935324387850
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
