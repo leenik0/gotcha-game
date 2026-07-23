@@ -8,6 +8,7 @@ TagManager:
   - Checkpoint
   - Camera Point
   - Vehicle
+  - Coin Countah
   layers:
   - Default
   - TransparentFX

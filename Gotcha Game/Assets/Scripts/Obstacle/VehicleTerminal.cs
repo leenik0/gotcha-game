@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -26,7 +27,7 @@ public class VehicleTerminal : MonoBehaviour, Interactable
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (promptText && other.CompareTag("Player"))
+        if (promptText && (other.CompareTag("Player") || other.CompareTag("Vehicle")))
         {
             promptText.gameObject.SetActive(true);
         }
@@ -34,7 +35,7 @@ public class VehicleTerminal : MonoBehaviour, Interactable
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (promptText && other.CompareTag("Player"))
+        if (promptText && (other.CompareTag("Player") || other.CompareTag("Vehicle")))
         {
             promptText.gameObject.SetActive(false);
         }
@@ -73,7 +74,15 @@ public class VehicleTerminal : MonoBehaviour, Interactable
         }
 
         if (door)
-            door.SetActive(false);
+            StartCoroutine(OpenDoor());
 
+    }
+
+    IEnumerator OpenDoor()
+    {
+        door.SetActive(false);
+        yield return new WaitUntil(() => player.transform.position.y < door.transform.position.y);
+        yield return new WaitForSeconds(0.25f);
+        door.SetActive(true);
     }
 }
