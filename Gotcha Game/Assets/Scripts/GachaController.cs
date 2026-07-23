@@ -18,20 +18,17 @@ public class GachaController : MonoBehaviour, Interactable
     public AudioClip cheerClip;
 
     [Header("Reward Menu")]
-    public int coinAmountNeeded = 5;
     public GameObject rewardPanel;
+    public Image panelImage;
     public TMP_Text title;
     public TMP_Text rarity;
     public Image sprite;
-
-    private PlayerInventory inventory;
 
     private bool canGacha = true;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        inventory = FindAnyObjectByType<PlayerInventory>();
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -58,61 +55,41 @@ public class GachaController : MonoBehaviour, Interactable
             title.text = reward.GetName();
             rarity.text = reward.GetRarity();
             sprite.sprite = reward.GetSprite();
+            panelImage.color = reward.GetColor();
             StartCoroutine(ShowReward());
-            inventory.Collect(reward);
         }
     }
 
     public void Interact()
     {
-        if (inventory.GetCoinBalance() >= coinAmountNeeded)
-        {
-            Gacha();
-            inventory.SpendCoins(coinAmountNeeded);
-        }
-        else
-            Debug.Log("Need more coins smh");
+        Gacha();
     }
 
     private IEnumerator ShowReward()
     {
         // Click SFX
-        if(leverClip)
-        {
-            audioSource.clip = leverClip;
-            audioSource.Play();
-            yield return new WaitUntil(() => audioSource.time >= leverClip.length);
-        }
+        audioSource.clip = leverClip;
+        audioSource.Play();
+        yield return new WaitUntil(() => audioSource.time >= leverClip.length);
+
         // Rattle SFX
-        if (rattleClip)
-        { 
-            audioSource.clip = rattleClip;
-            audioSource.Play();
-            yield return new WaitUntil(() => audioSource.time >= rattleClip.length);
-            yield return new WaitForSeconds(0.5f);
-        }
+        audioSource.clip = rattleClip;
+        audioSource.Play();
+        yield return new WaitUntil(() => audioSource.time >= rattleClip.length);
+        yield return new WaitForSeconds(0.5f);
+
         // Animation
-        if (fanfare)
-        {
-            audioSource.clip = fanfare;
-            audioSource.Play();
-        }
-            rewardPanel.transform.localScale = Vector3.zero;
-            rewardPanel.transform.localRotation = Quaternion.identity;
-            rewardPanel.transform.DOLocalRotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360).SetEase(Ease.OutQuad);
-            rewardPanel.transform.DOScale(1f, 0.5f).SetEase(Ease.OutBack);
-            rewardPanel.SetActive(true);
-        if(fanfare)
-        {
-            yield return new WaitUntil(() => audioSource.time >= fanfare.length);
-        }
-
-        if(cheerClip)
-        {
-            audioSource.clip = cheerClip;
-            audioSource.Play();
-
-        }
+        audioSource.clip = fanfare;
+        audioSource.Play();
+        rewardPanel.transform.localScale = Vector3.zero;
+        rewardPanel.transform.localRotation = Quaternion.identity;
+        rewardPanel.transform.DOLocalRotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360).SetEase(Ease.OutQuad);
+        rewardPanel.transform.DOScale(1f, 0.5f).SetEase(Ease.OutBack);
+        rewardPanel.SetActive(true);
+        
+        yield return new WaitUntil(() => audioSource.time >= fanfare.length);
+        audioSource.clip = cheerClip;
+        audioSource.Play();
 
         yield return new WaitForSeconds(3f);
 
