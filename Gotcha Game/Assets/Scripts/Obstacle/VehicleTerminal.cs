@@ -26,7 +26,7 @@ public class VehicleTerminal : MonoBehaviour, Interactable
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (promptText && other.CompareTag("Player"))
+        if (promptText && (other.CompareTag("Player") || other.CompareTag("Vehicle")))
         {
             promptText.gameObject.SetActive(true);
         }
@@ -34,7 +34,7 @@ public class VehicleTerminal : MonoBehaviour, Interactable
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (promptText && other.CompareTag("Player"))
+        if (promptText && (other.CompareTag("Player") || other.CompareTag("Vehicle")))
         {
             promptText.gameObject.SetActive(false);
         }
