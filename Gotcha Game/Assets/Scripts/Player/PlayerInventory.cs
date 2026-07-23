@@ -6,12 +6,12 @@ public class PlayerInventory : MonoBehaviour
 
 
     public int coins = 0;
-    public HashSet<GachaReward> rewards;
+    public List<GachaReward> rewards;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rewards = new HashSet<GachaReward>();
+        rewards = new List<GachaReward>();
     }
 
     // Update is called once per frame
@@ -26,10 +26,27 @@ public class PlayerInventory : MonoBehaviour
         PrintBalance();
     }
 
+    public void SpendCoins(int cost)
+    {
+        // checking for negative input
+        if (cost < 0)
+            cost = -cost;
+        coins -= cost;
+        
+        // removing negative values
+        if (coins < 0)
+            coins = 0;
+    }
+
     public void Collect(GachaReward gachaReward)
     {
         rewards.Add(gachaReward);
         PrintBalance();
+    }
+
+    public int GetCoinBalance()
+    {
+        return coins;
     }
 
     public void PrintBalance()

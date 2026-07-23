@@ -161,7 +161,7 @@ public class Vehicle : MonoBehaviour, Interactable
         if (thudSFX)
             AudioSource.PlayClipAtPoint(thudSFX, transform.position);
 
-        if (enterOnCollision)
+        if (enterOnCollision && collision.gameObject.CompareTag("Player"))
             EnterVehicle();
     }
 

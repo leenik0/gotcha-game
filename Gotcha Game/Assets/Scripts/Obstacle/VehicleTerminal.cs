@@ -14,7 +14,7 @@ public class VehicleTerminal : MonoBehaviour, Interactable
     public static Vehicle spawnedVehicle;
 
 
-    private bool hasSpawned = false;
+    private static bool hasSpawned = false;
     private PlayerController player;
 
 
