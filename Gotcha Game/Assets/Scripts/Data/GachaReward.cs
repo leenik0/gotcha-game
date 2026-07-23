@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum Rarity { Common, Rare, Epic, Homosexual };
+
 [System.Serializable]
 public class GachaReward
 {
     public string rewardName;
-    public string rewardRarity;
+    public Rarity rewardRarity;
     public Sprite rewardSprite;
 
     public string GetName()
@@ -20,6 +22,23 @@ public class GachaReward
 
     public string GetRarity()
     {
-        return rewardRarity;
+        return rewardRarity.ToString();
+    }
+
+    public Color GetColor()
+    {
+        switch (rewardRarity)
+        {
+            case Rarity.Common:
+                return Color.beige;
+            case Rarity.Rare:
+                return Color.royalBlue;
+            case Rarity.Epic:
+                return Color.rebeccaPurple;
+            case Rarity.Homosexual:
+                return Color.darkRed;
+            default:
+                return Color.beige;
+        }
     }
 }

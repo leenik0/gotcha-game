@@ -9978,16 +9978,16 @@ MonoBehaviour:
   promptText: {fileID: 1436961041}
   rewards:
   - rewardName: Common
-    rewardRarity: Common
+    rewardRarity: 0
     rewardSprite: {fileID: -7327663116236986074, guid: ca21040e4ce3fe4419cbb475ed2fa9f4, type: 3}
   - rewardName: Common
-    rewardRarity: Common
+    rewardRarity: 0
     rewardSprite: {fileID: -7327663116236986074, guid: ca21040e4ce3fe4419cbb475ed2fa9f4, type: 3}
   - rewardName: Rare
-    rewardRarity: Rare
+    rewardRarity: 1
     rewardSprite: {fileID: 331846025786670775, guid: 99e2fe71fd63ee541848a11ca882e69d, type: 3}
   - rewardName: Pickle Fella
-    rewardRarity: Homosexual
+    rewardRarity: 3
     rewardSprite: {fileID: -7686138941976625541, guid: 159c26280c17660469f8ea0d78aa3d5b, type: 3}
   audioSource: {fileID: 0}
   leverClip: {fileID: 8300000, guid: 4204e7e5eafe750469b7e8a155661e0d, type: 3}
@@ -9995,6 +9995,7 @@ MonoBehaviour:
   fanfare: {fileID: 8300000, guid: fc7426f06f6884f418bbb626992c495d, type: 3}
   cheerClip: {fileID: 8300000, guid: 543222155c8135a40910d892403451e2, type: 3}
   rewardPanel: {fileID: 1922151473}
+  panelImage: {fileID: 734653387}
   title: {fileID: 850811573}
   rarity: {fileID: 968613485}
   sprite: {fileID: 1359899660}

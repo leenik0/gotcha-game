@@ -19,6 +19,7 @@ public class GachaController : MonoBehaviour, Interactable
 
     [Header("Reward Menu")]
     public GameObject rewardPanel;
+    public Image panelImage;
     public TMP_Text title;
     public TMP_Text rarity;
     public Image sprite;
@@ -54,6 +55,7 @@ public class GachaController : MonoBehaviour, Interactable
             title.text = reward.GetName();
             rarity.text = reward.GetRarity();
             sprite.sprite = reward.GetSprite();
+            panelImage.color = reward.GetColor();
             StartCoroutine(ShowReward());
         }
     }
