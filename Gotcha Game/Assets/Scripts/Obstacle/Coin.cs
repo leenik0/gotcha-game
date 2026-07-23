@@ -5,6 +5,7 @@ public class Coin : MonoBehaviour
 
     public int coinValue = 1;
     public float rotateSpeed = 1f;
+    public AudioClip pickupSFX;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

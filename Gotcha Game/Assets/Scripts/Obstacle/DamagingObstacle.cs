@@ -33,6 +33,7 @@ public class DamagingObstacle : MonoBehaviour
         
         // player knockback upon damage
         PlayerController playerController = other.GetComponent<PlayerController>();
+        playerController.SetJumpCount(1);
         StartCoroutine(playerController.Knockback());
 
         // damage the player
