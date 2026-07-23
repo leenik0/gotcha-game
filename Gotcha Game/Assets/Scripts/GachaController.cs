@@ -55,6 +55,7 @@ public class GachaController : MonoBehaviour, Interactable
             rarity.text = reward.GetRarity();
             sprite.sprite = reward.GetSprite();
             StartCoroutine(ShowReward());
+            FindAnyObjectByType<PlayerInventory>().Collect(reward);
         }
     }
 

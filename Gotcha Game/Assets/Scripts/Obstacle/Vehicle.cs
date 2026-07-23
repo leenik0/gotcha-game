@@ -24,14 +24,16 @@ public class Vehicle : MonoBehaviour, Interactable
 
     private Rigidbody2D rb;
     private PlayerController player;
+    private Collider2D playerCollider;
     private Animator animator;
     private AudioSource audioSource;
 
     private bool isRiding = false;
     private bool isGrounded = false;
 
-    [Header("Tooltip Settings")]
-    public TMP_Text tooltip;
+    [Header("VFX Settings")]
+    public GameObject entranceVFX;
+    public GameObject exitVFX;
 
 
     // INPUT STUFF
@@ -60,9 +62,8 @@ public class Vehicle : MonoBehaviour, Interactable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (tooltip)
-            tooltip.gameObject.SetActive(false);
         player = FindAnyObjectByType<PlayerController>();
+        playerCollider = player.GetComponent<Collider2D>();
         animator.SetInteger("animState", 0);
         audioSource.clip = rollSFX;
 
@@ -119,7 +120,11 @@ public class Vehicle : MonoBehaviour, Interactable
 
     public void EnterVehicle()
     {
+        if(entranceVFX)
+            Instantiate(entranceVFX);
+        
         isRiding = true;
+        playerCollider.enabled = false;
         animator.SetInteger("animState", 1);
         player.SetCanMove(false);
         player.transform.parent = this.transform;
@@ -138,6 +143,7 @@ public class Vehicle : MonoBehaviour, Interactable
         isRiding = false;
         animator.SetInteger("animState", 0);
         player.SetCanMove(true);
+        playerCollider.enabled = true;
         player.transform.parent = null;
         player.transform.position = transform.position;
     }
