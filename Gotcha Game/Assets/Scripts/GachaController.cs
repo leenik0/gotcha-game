@@ -57,6 +57,7 @@ public class GachaController : MonoBehaviour, Interactable
             sprite.sprite = reward.GetSprite();
             panelImage.color = reward.GetColor();
             StartCoroutine(ShowReward());
+            FindAnyObjectByType<PlayerInventory>().Collect(reward);
         }
     }
 
@@ -86,7 +87,6 @@ public class GachaController : MonoBehaviour, Interactable
         rewardPanel.transform.DOLocalRotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360).SetEase(Ease.OutQuad);
         rewardPanel.transform.DOScale(1f, 0.5f).SetEase(Ease.OutBack);
         rewardPanel.SetActive(true);
-        
         yield return new WaitUntil(() => audioSource.time >= fanfare.length);
         audioSource.clip = cheerClip;
         audioSource.Play();
