@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7de8e568ee91bf741af62ec03007464e
+guid: 4d361d1e24097204da328618d1f9ca3c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 978942612559604503
-    second: PlayerIdle_0
+      213: 1472113988003734239
+    second: SpringIdle4_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerIdle_0
+      name: SpringIdle4_0
       rect:
         serializedVersion: 2
-        x: 6
+        x: 0
         y: 0
-        width: 19
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 71bab159e17e59d00800000000000000
-      internalID: 978942612559604503
+      spriteID: fd2a8db5fdffd6410800000000000000
+      internalID: 1472113988003734239
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a0d92fc17f82ac045aa8cc4e94a5c992
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PlayerIdle_0: 978942612559604503
+      SpringIdle4_0: 1472113988003734239
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

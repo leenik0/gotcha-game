@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 7de8e568ee91bf741af62ec03007464e
+guid: d955149210551614a89394f02897fde1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 978942612559604503
-    second: PlayerIdle_0
+      213: 7714429219898017175
+    second: SpringIdle2_0
+  - first:
+      213: -4058785699249054779
+    second: SpringIdle2_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +116,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerIdle_0
+      name: SpringIdle2_0
       rect:
         serializedVersion: 2
-        x: 6
+        x: 0
         y: 0
-        width: 19
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 71bab159e17e59d00800000000000000
-      internalID: 978942612559604503
+      spriteID: 7954ae0b0882f0b60800000000000000
+      internalID: 7714429219898017175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpringIdle2_1
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 5
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cb13d039eb4ca7c0800000000000000
+      internalID: -4058785699249054779
       vertices: []
       indices: 
       edges: []
@@ -138,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 129699105e013534393e4e1e904319e3
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PlayerIdle_0: 978942612559604503
+      SpringIdle2_0: 7714429219898017175
+      SpringIdle2_1: -4058785699249054779
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

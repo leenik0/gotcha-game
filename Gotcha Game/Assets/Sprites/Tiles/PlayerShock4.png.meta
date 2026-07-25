@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 7de8e568ee91bf741af62ec03007464e
+guid: ede98e16e863a3648a31283b88a859a2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 978942612559604503
-    second: PlayerIdle_0
+      213: 1406363712471097187
+    second: PlayerShock4_0
+  - first:
+      213: 8732447055502692271
+    second: PlayerShock4_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,7 +116,29 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerIdle_0
+      name: PlayerShock4_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 31
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36fd6d26858648310800000000000000
+      internalID: 1406363712471097187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerShock4_1
       rect:
         serializedVersion: 2
         x: 6
@@ -128,8 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 71bab159e17e59d00800000000000000
-      internalID: 978942612559604503
+      spriteID: fafc42b9452ef2970800000000000000
+      internalID: 8732447055502692271
       vertices: []
       indices: 
       edges: []
@@ -148,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PlayerIdle_0: 978942612559604503
+      PlayerShock4_0: 1406363712471097187
+      PlayerShock4_1: 8732447055502692271
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

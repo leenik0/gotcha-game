@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7de8e568ee91bf741af62ec03007464e
+guid: 3fa06caffbc06404393bea3ecf70e25c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 978942612559604503
-    second: PlayerIdle_0
+      213: 8766623735224070904
+    second: SpringBounceNEW9_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerIdle_0
+      name: SpringBounceNEW9_0
       rect:
         serializedVersion: 2
-        x: 6
+        x: 0
         y: 0
-        width: 19
-        height: 29
+        width: 16
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 71bab159e17e59d00800000000000000
-      internalID: 978942612559604503
+      spriteID: 8f2f981f6dd49a970800000000000000
+      internalID: 8766623735224070904
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PlayerIdle_0: 978942612559604503
+      SpringBounceNEW9_0: 8766623735224070904
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
