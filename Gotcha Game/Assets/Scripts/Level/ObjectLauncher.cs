@@ -1,9 +1,17 @@
+using System.Collections;
 using UnityEngine;
 
 public class ObjectLauncher : MonoBehaviour
 {
     public float launchForce = 100f;
     public bool isLaunching = false;
+
+    private Animator animator;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,7 +29,15 @@ public class ObjectLauncher : MonoBehaviour
             PlayerController controller = other.GetComponent<PlayerController>();
             if (controller)
                 controller.SetJumpCount(1);
-        }
+            animator.SetInteger("animState", 1);
+            StartCoroutine(BounceTime());
 
+        }
+    }
+
+    IEnumerator BounceTime()
+    {
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+        animator.SetInteger("animState", 0);
     }
 }
