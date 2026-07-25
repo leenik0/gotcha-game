@@ -19,7 +19,7 @@ public class ObjectLauncher : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isLaunching = true;
-            Debug.Log("Launching");
+            //Debug.Log("Launching");
             Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
             if (rb)
             {

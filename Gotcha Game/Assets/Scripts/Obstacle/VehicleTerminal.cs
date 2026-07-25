@@ -54,7 +54,11 @@ public class VehicleTerminal : MonoBehaviour, Interactable
             player.SetCanMove(false);
             spawnedVehicle = Instantiate(vehicle, player.transform.position + Vector3.up * 10f, Quaternion.identity).GetComponent<Vehicle>();
             //obj.EnterVehicle();
-            
+
+            //player surprise animation
+            player.animator.SetInteger("animState", 6);
+            player.animator.Play("PlayerSurprise", 0);
+
             hasSpawned = true;
         }
         else if (canLeave)
@@ -80,6 +84,7 @@ public class VehicleTerminal : MonoBehaviour, Interactable
 
     IEnumerator OpenDoor()
     {
+        yield return new WaitUntil(() => player.transform.parent != null);
         door.SetActive(false);
         yield return new WaitUntil(() => player.transform.position.y < door.transform.position.y);
         yield return new WaitForSeconds(0.25f);

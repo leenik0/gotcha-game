@@ -6,7 +6,7 @@ public class PlayerRespawn : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Entered Trigger");
+        //Debug.Log("Entered Trigger");
         if (other.CompareTag("Void"))
         {
             Debug.Log("Respawning");
