@@ -10,11 +10,12 @@ public class SwingingCrane : Crane
     public float swingSpeed = 30f;
 
     private Transform cranePivot;
-
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void Start()
     {
         cranePivot = transform.parent;
+        base.Start();
     }
 
     // Update is called once per frame
