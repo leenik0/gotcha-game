@@ -166,8 +166,18 @@ public class PlayerController : MonoBehaviour
         if (grabbedTransform && grabbed)
         {
             transform.position = Vector3.Lerp(transform.position, grabbedTransform.position, moveAcceleration);
-            animator.SetInteger("animState", 4);
-            animator.Play("PlayerHang", 0);
+
+            if (animator.GetInteger("animState") > 40)
+                return;
+
+            int hangValue = 40 + Random.Range(1,4);
+            string hangString = "PlayerHang_" + hangValue.ToString();
+
+            animator.SetInteger("animState", hangValue);
+            animator.Play(hangString, 0);
+
+            Debug.Log("HangValue: " + hangValue);
+            Debug.Log("HangString: " + hangString);
 
         }
     }
