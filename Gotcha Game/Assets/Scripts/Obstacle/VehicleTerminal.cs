@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -26,7 +27,7 @@ public class VehicleTerminal : MonoBehaviour, Interactable
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (promptText && other.CompareTag("Player"))
+        if (promptText && (other.CompareTag("Player") || other.CompareTag("Vehicle")))
         {
             promptText.gameObject.SetActive(true);
         }
@@ -34,7 +35,7 @@ public class VehicleTerminal : MonoBehaviour, Interactable
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (promptText && other.CompareTag("Player"))
+        if (promptText && (other.CompareTag("Player") || other.CompareTag("Vehicle")))
         {
             promptText.gameObject.SetActive(false);
         }
@@ -53,7 +54,11 @@ public class VehicleTerminal : MonoBehaviour, Interactable
             player.SetCanMove(false);
             spawnedVehicle = Instantiate(vehicle, player.transform.position + Vector3.up * 10f, Quaternion.identity).GetComponent<Vehicle>();
             //obj.EnterVehicle();
-            
+
+            //player surprise animation
+            player.animator.SetInteger("animState", 6);
+            player.animator.Play("PlayerSurprise", 0);
+
             hasSpawned = true;
         }
         else if (canLeave)
@@ -73,7 +78,16 @@ public class VehicleTerminal : MonoBehaviour, Interactable
         }
 
         if (door)
-            door.SetActive(false);
+            StartCoroutine(OpenDoor());
 
+    }
+
+    IEnumerator OpenDoor()
+    {
+        yield return new WaitUntil(() => player.transform.parent != null);
+        door.SetActive(false);
+        yield return new WaitUntil(() => player.transform.position.y < door.transform.position.y);
+        yield return new WaitForSeconds(0.25f);
+        door.SetActive(true);
     }
 }

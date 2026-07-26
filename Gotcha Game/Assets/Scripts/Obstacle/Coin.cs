@@ -21,9 +21,10 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Collider: " + other.tag);
         if (other.CompareTag("Player") || other.CompareTag("Vehicle"))
         {
-            PlayerInventory inventory = other.GetComponent<PlayerInventory>();
+            PlayerInventory inventory = FindAnyObjectByType<PlayerInventory>();
             inventory.Collect(coinValue);
             Destroy(this.gameObject);
         }

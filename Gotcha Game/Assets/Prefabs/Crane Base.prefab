@@ -322,6 +322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7921fd90093324ea94d58df8f84e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwingingCrane
+  closedSprite: {fileID: 7611273451958990784, guid: 421c394efeca6af4493c087ecfb428aa, type: 3}
+  openSprite: {fileID: -3340060142206363033, guid: 15e5c7ee1b967b444a45f92349e4cf44, type: 3}
   swingAngle: 60
   swingSpeed: 45
 --- !u!1 &8932946217216717448

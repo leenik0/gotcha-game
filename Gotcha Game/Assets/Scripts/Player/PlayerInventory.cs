@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
@@ -7,10 +8,13 @@ public class PlayerInventory : MonoBehaviour
     public int coins = 0;
     public List<GachaReward> rewards;
 
+    private TMP_Text coinText;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rewards = new List<GachaReward>();
+        coinText = GameObject.FindGameObjectWithTag("Coin Countah").GetComponent<TMP_Text>();
     }
 
     // Update is called once per frame
@@ -23,6 +27,7 @@ public class PlayerInventory : MonoBehaviour
     {
         coins += coinValue;
         PrintBalance();
+        UpdateCoinText();
     }
 
     public void SpendCoins(int cost)
@@ -35,6 +40,15 @@ public class PlayerInventory : MonoBehaviour
         // removing negative values
         if (coins < 0)
             coins = 0;
+
+        UpdateCoinText();
+    }
+
+    private void UpdateCoinText()
+    {
+        if (!coinText)
+            return;
+        coinText.text = coins + " Coins";
     }
 
     public void Collect(GachaReward gachaReward)
