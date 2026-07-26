@@ -13315,6 +13315,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2482616892875883752, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2488244160021860526, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
       propertyPath: m_TagString
       value: Coin Countah
@@ -13323,9 +13327,21 @@ PrefabInstance:
       propertyPath: m_text
       value: 0 Coins
       objectReference: {fileID: 0}
+    - target: {fileID: 3488744926267458625, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6207796200630520948, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
       propertyPath: m_Name
       value: Pause Menu Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261857873198978417, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8840200976052973337, guid: e1d742721767a5a48a3648acba7aff12, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
