@@ -3,6 +3,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 [RequireComponent(typeof(AudioSource))]
 public class GachaController : MonoBehaviour, Interactable
@@ -17,6 +18,10 @@ public class GachaController : MonoBehaviour, Interactable
     public AudioClip fanfare;
     public AudioClip cheerClip;
 
+    [Header("Video")]
+
+    public VideoPlayer videoPlayer;
+
     [Header("Reward Menu")]
     public GameObject rewardPanel;
     public Image panelImage;
@@ -29,6 +34,7 @@ public class GachaController : MonoBehaviour, Interactable
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        videoPlayer = GetComponent<VideoPlayer>();
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -81,20 +87,33 @@ public class GachaController : MonoBehaviour, Interactable
         // Animation
         audioSource.clip = fanfare;
         audioSource.Play();
+        PlayVideo();
         rewardPanel.transform.localScale = Vector3.zero;
         rewardPanel.transform.localRotation = Quaternion.identity;
         rewardPanel.transform.DOLocalRotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360).SetEase(Ease.OutQuad);
         rewardPanel.transform.DOScale(1f, 0.5f).SetEase(Ease.OutBack);
         rewardPanel.SetActive(true);
-        
+
         yield return new WaitUntil(() => audioSource.time >= fanfare.length);
         audioSource.clip = cheerClip;
         audioSource.Play();
 
         yield return new WaitForSeconds(3f);
 
+        PauseVideo();
         rewardPanel.transform.DOLocalRotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360).SetEase(Ease.OutQuad);
         rewardPanel.transform.DOScale(0f, 0.3f).SetEase(Ease.InBack).OnComplete(() => { rewardPanel.SetActive(false); });
         canGacha = true;
+    }
+
+    public void PlayVideo()
+    {
+        Debug.Log("Playing video");
+        if (!videoPlayer.isPlaying) videoPlayer.Play();
+    }
+
+    public void PauseVideo()
+    {
+        if (videoPlayer.isPlaying) videoPlayer.Pause();
     }
 }
