@@ -130,7 +130,7 @@ public class PlayerController : MonoBehaviour
             animator.Play("PlayerIdle", 0);
         }
         // fall anim condition
-        else if (rb.linearVelocityY < -7.5f)
+        else if (rb.linearVelocityY < -8.5f)
         {
             if (audioSource.clip && audioSource.isPlaying)
                 audioSource.Stop();
@@ -139,8 +139,17 @@ public class PlayerController : MonoBehaviour
             animator.SetInteger("animState", 7);
             animator.Play("PlayerFall", 0);
         }
+        else if (jumpCount == 2)
+        {
+            if (audioSource.clip && audioSource.isPlaying)
+                audioSource.Stop();
+
+            // two jump anim state
+            animator.SetInteger("animState", 5);
+            animator.Play("PlayerJump2", 0);
+        }
         // jump anim condition
-        else if (jumpCount <= 1 && rb.linearVelocityY > 0)
+        else /*if (jumpCount <= 1 && rb.linearVelocityY > 0) */
         {
 
             if (audioSource.clip && audioSource.isPlaying)
@@ -152,15 +161,7 @@ public class PlayerController : MonoBehaviour
             
 
         }
-        else if(jumpCount == 2)
-        {
-            if (audioSource.clip && audioSource.isPlaying)
-                audioSource.Stop();
-
-            // two jump anim state
-            animator.SetInteger("animState", 5);
-            animator.Play("PlayerJump2", 0);
-        }
+        
         
     }
 
