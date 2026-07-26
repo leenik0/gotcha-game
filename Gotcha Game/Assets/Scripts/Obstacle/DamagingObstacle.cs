@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
@@ -24,8 +25,8 @@ public class DamagingObstacle : MonoBehaviour
             Debug.Log("OtherDirection: " + otherDirection);
 
             otherRB.AddForce(otherDirection * bounceForce, ForceMode2D.Impulse);
-        }
 
+        }
 
 
         if (!(other.CompareTag("Player")))

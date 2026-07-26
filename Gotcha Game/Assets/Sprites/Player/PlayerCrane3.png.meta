@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 79611e8b74cad354382eb1dfe4a03543
+guid: ab5d369c986259d4aaf256c041b20703
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4887966262052472852
-    second: PlayerCrane_0
+      213: 3116713497629188268
+    second: PlayerCrane3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerCrane_0
+      name: PlayerCrane3_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 4
         y: 0
-        width: 20
-        height: 32
+        width: 23
+        height: 33
       alignment: 9
-      pivot: {x: 0.84772617, y: 0.81865287}
+      pivot: {x: 0.5949915, y: 1.0929766}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4184bb3fa6b85d340800000000000000
-      internalID: 4887966262052472852
+      spriteID: ca06adcb96ac04b20800000000000000
+      internalID: 3116713497629188268
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8c9c017ef51d9b44181cbbf3ca6073f6
+    spriteID: fa639d90dfeccd7498dafa89dd1dfabc
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PlayerCrane_0: 4887966262052472852
+      PlayerCrane3_0: 3116713497629188268
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
 
     private bool knockbacked = false;
 
-    private Animator animator;
+    public Animator animator;
 
     //[Grabbed Variables]
 
@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
     // the amount of time before the player can be grabbed by a crane again
     private float timeTillGrabbable = 1f;
 
-    private Transform grabbedTransform;
+    //private Transform grabbedTransform;
 
     // allows the player to move when true; useful for when otherwise occupied
     private bool canMove = true;
@@ -159,15 +159,28 @@ public class PlayerController : MonoBehaviour
 
             Jump();
 
-            ReleaseGrab();
+            if(grabbed)
+                ReleaseGrab();
             jumpCount++;
         }
 
-        if (grabbedTransform && grabbed)
+        if (grabbed)
         {
-            transform.position = Vector3.Lerp(transform.position, grabbedTransform.position, moveAcceleration);
-            animator.SetInteger("animState", 4);
-            animator.Play("PlayerHang", 0);
+            transform.localPosition = Vector3.Lerp(transform.localPosition, Vector2.zero, moveAcceleration);
+
+            if (animator.GetInteger("animState") > 40)
+                return;
+
+            int hangValue = Random.Range(1,4);
+            string hangString = "PlayerHang_" + hangValue.ToString();
+
+
+            // the hang states are labeled 41, 42, 43, with the 4 meaning the general hang state, and the 1,2,3 being the variants
+            animator.SetInteger("animState", 40 + hangValue);
+            animator.Play(hangString, 0);
+
+            Debug.Log("HangValue: " + hangValue);
+            Debug.Log("HangString: " + hangString);
 
         }
     }
@@ -220,13 +233,13 @@ public class PlayerController : MonoBehaviour
     }
 
     // called when a crane grabs the player
-    public void Grabbed(Transform grabbedTransform)
+    public void Grabbed(Transform craneTransform)
     {
         if (grabbable == false)
             return;
 
         StopAllCoroutines();
-        animator.SetInteger("animState", 4);
+        //animator.SetInteger("animState", 4);
 
 
         grabbed = true;
@@ -234,18 +247,32 @@ public class PlayerController : MonoBehaviour
 
         rb.gravityScale = 0f;
         rb.linearVelocity = Vector2.zero;
-        transform.position = Vector2.zero;
+        transform.localPosition = Vector2.zero;
+        transform.localRotation = Quaternion.identity;
 
-        this.grabbedTransform = grabbedTransform;
+        Debug.Log("Crane Transform???: " + craneTransform);
+        transform.parent = craneTransform;
 
         SetJumpCount(0);
+
+        Crane crane = transform.parent.GetComponent<Crane>();
+        crane.UpdateCraneSprite(false);
+
     }
 
     // resets the player's movement following the grab
     private void ReleaseGrab()
     {
         grabbed = false;
+
+        //updates the crane sprite
+
+        Crane crane = transform.parent.gameObject.GetComponent<Crane>();
+        if(crane)
+            crane.UpdateCraneSprite(true);
+
         transform.parent = null;
+        transform.localRotation = Quaternion.identity;
         rb.gravityScale = 1f;
         StartCoroutine(GrabTime());
     }

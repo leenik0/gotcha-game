@@ -4,11 +4,19 @@ public class Crane : MonoBehaviour
 {
     // this goes on the crane grabber object
 
+    public Sprite closedSprite;
+    public Sprite openSprite;
+
+    private SpriteRenderer spriteRend;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public virtual void Start()
     {
-        
+        spriteRend = GetComponent<SpriteRenderer>();
+
+        if (!openSprite)
+            openSprite = spriteRend.sprite;
     }
 
     // Update is called once per frame
@@ -19,14 +27,22 @@ public class Crane : MonoBehaviour
 
     public void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("Collider Triggered: " + other.name);
+        //Debug.Log("Collider Triggered: " + other.name);
         if(other.CompareTag("Player"))
         {
             
             PlayerController controller = other.GetComponent<PlayerController>();
-            Debug.Log("Can Be Grabbed: " + controller.CanBeGrabbed());
+
             if(controller.CanBeGrabbed())
-                controller.Grabbed(this.transform);
+                controller.Grabbed(transform);
         }
+    }
+
+    public void UpdateCraneSprite(bool open)
+    {
+        //Debug.Log("Closed Sprite: " + closedSprite.name);
+        //Debug.Log("Opened Sprite: " + openSprite.name);
+
+        spriteRend.sprite = open ? openSprite : closedSprite;
     }
 }
