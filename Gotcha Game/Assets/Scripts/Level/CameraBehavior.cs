@@ -31,10 +31,13 @@ public class CameraBehavior : MonoBehaviour
     {
         if (isMoving || player == null) return;
 
-        if (objectLauncher.isLaunching)
+        if (objectLauncher)
         {
-            Vector3 launchTarget = new(transform.position.x, player.position.y, transform.position.z);
-            cam.transform.position = Vector3.SmoothDamp(transform.position, launchTarget, ref velocity, smoothTime);
+            if (objectLauncher.isLaunching)
+            {
+                Vector3 launchTarget = new(transform.position.x, player.position.y, transform.position.z);
+                cam.transform.position = Vector3.SmoothDamp(transform.position, launchTarget, ref velocity, smoothTime);
+            }
         }
 
         if (isNotPlinko)

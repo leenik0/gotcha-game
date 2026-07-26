@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
 
-
     public int coins = 0;
     public List<GachaReward> rewards;
 

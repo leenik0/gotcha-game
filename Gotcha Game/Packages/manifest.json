@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.hecomi.uchromakey": "https://github.com/hecomi/uChromaKey.git#upm",
     "com.unity.2d.animation": "14.0.3",
     "com.unity.2d.aseprite": "4.0.2",
     "com.unity.2d.psdimporter": "13.0.2",

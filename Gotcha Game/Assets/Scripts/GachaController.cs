@@ -3,6 +3,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 [RequireComponent(typeof(AudioSource))]
 public class GachaController : MonoBehaviour, Interactable
@@ -18,6 +19,10 @@ public class GachaController : MonoBehaviour, Interactable
     public AudioClip fanfare;
     public AudioClip cheerClip;
 
+    [Header("Video")]
+
+    public VideoPlayer videoPlayer;
+
     [Header("Reward Menu")]
     public GameObject rewardPanel;
     public Image panelImage;
@@ -31,6 +36,7 @@ public class GachaController : MonoBehaviour, Interactable
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        videoPlayer = GetComponent<VideoPlayer>();
         inventory = FindAnyObjectByType<PlayerInventory>();
     }
     void OnTriggerEnter2D(Collider2D other)
@@ -93,6 +99,7 @@ public class GachaController : MonoBehaviour, Interactable
         }
 
         // Animation
+        PlayVideo();
         if(fanfare)
         {
             audioSource.clip = fanfare;
@@ -115,8 +122,20 @@ public class GachaController : MonoBehaviour, Interactable
 
         yield return new WaitForSeconds(3f);
 
+        PauseVideo();
         rewardPanel.transform.DOLocalRotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360).SetEase(Ease.OutQuad);
         rewardPanel.transform.DOScale(0f, 0.3f).SetEase(Ease.InBack).OnComplete(() => { rewardPanel.SetActive(false); });
         canGacha = true;
+    }
+
+    public void PlayVideo()
+    {
+        Debug.Log("Playing video");
+        if (!videoPlayer.isPlaying) videoPlayer.Play();
+    }
+
+    public void PauseVideo()
+    {
+        if (videoPlayer.isPlaying) videoPlayer.Pause();
     }
 }
