@@ -236,15 +236,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7412399, g: 0.7412399, b: 0.7412399, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -861738619030025424, guid: 5775fe426bc729447b6d4335165a6cc9, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1151,15 +1151,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: By Nic, Mike & Lily
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: eb911398e6c1cb245969d418cadd709d, type: 2}
-  m_sharedMaterial: {fileID: 2666275912594257325, guid: eb911398e6c1cb245969d418cadd709d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3de5fb01444671741bdbfef378d6f9f1, type: 2}
+  m_sharedMaterial: {fileID: 2666275912594257325, guid: 3de5fb01444671741bdbfef378d6f9f1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4285202687
-  m_fontColor: {r: 1, g: 0, b: 0.42083395, a: 1}
+    rgba: 4294442752
+  m_fontColor: {r: 0, g: 1, b: 0.9686275, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1500,15 +1500,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Gotcha!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: eb911398e6c1cb245969d418cadd709d, type: 2}
-  m_sharedMaterial: {fileID: 2666275912594257325, guid: eb911398e6c1cb245969d418cadd709d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3de5fb01444671741bdbfef378d6f9f1, type: 2}
+  m_sharedMaterial: {fileID: 2666275912594257325, guid: 3de5fb01444671741bdbfef378d6f9f1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294955264
-  m_fontColor: {r: 0, g: 0.82070076, b: 1, a: 1}
+    rgba: 4294442752
+  m_fontColor: {r: 0, g: 1, b: 0.969835, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
