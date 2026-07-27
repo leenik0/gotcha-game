@@ -8,6 +8,7 @@ using UnityEngine.Video;
 [RequireComponent(typeof(AudioSource))]
 public class GachaController : MonoBehaviour, Interactable
 {
+    public PlayerController playerController;
     public TMP_Text promptText;
     public GachaReward[] rewards;
     public int coinAmountNeeded = 5;
@@ -59,6 +60,7 @@ public class GachaController : MonoBehaviour, Interactable
     {
         if (canGacha)
         {
+            if (playerController) playerController.SetCanMove(false);
             canGacha = false;
             GachaReward reward = rewards[Random.Range(0, rewards.Length)];
             title.text = reward.GetName();
@@ -71,18 +73,17 @@ public class GachaController : MonoBehaviour, Interactable
 
     public void Interact()
     {
-        if(inventory.GetCoinBalance() >= coinAmountNeeded)
+        if (inventory.GetCoinBalance() >= coinAmountNeeded)
         {
             inventory.SpendCoins(coinAmountNeeded);
             Gacha();
-
         }
     }
 
     private IEnumerator ShowReward()
     {
         // Click SFX
-        if(leverClip)
+        if (leverClip)
         {
             audioSource.clip = leverClip;
             audioSource.Play();
@@ -90,7 +91,7 @@ public class GachaController : MonoBehaviour, Interactable
         }
 
         // Rattle SFX
-        if(rattleClip)
+        if (rattleClip)
         {
             audioSource.clip = rattleClip;
             audioSource.Play();
@@ -100,7 +101,7 @@ public class GachaController : MonoBehaviour, Interactable
 
         // Animation
         PlayVideo();
-        if(fanfare)
+        if (fanfare)
         {
             audioSource.clip = fanfare;
             audioSource.Play();
@@ -110,11 +111,11 @@ public class GachaController : MonoBehaviour, Interactable
         rewardPanel.transform.DOLocalRotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360).SetEase(Ease.OutQuad);
         rewardPanel.transform.DOScale(1f, 0.5f).SetEase(Ease.OutBack);
         rewardPanel.SetActive(true);
-        
-        if(fanfare)
+
+        if (fanfare)
             yield return new WaitUntil(() => audioSource.time >= fanfare.length);
-        
-        if(cheerClip)
+
+        if (cheerClip)
         {
             audioSource.clip = cheerClip;
             audioSource.Play();
@@ -126,6 +127,7 @@ public class GachaController : MonoBehaviour, Interactable
         rewardPanel.transform.DOLocalRotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360).SetEase(Ease.OutQuad);
         rewardPanel.transform.DOScale(0f, 0.3f).SetEase(Ease.InBack).OnComplete(() => { rewardPanel.SetActive(false); });
         canGacha = true;
+        if (playerController) playerController.SetCanMove(true);
     }
 
     public void PlayVideo()

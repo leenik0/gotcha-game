@@ -2410,6 +2410,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2065756391}
   m_SourcePrefab: {fileID: 100100000, guid: 9c53836fd8fce9f4dbe4ecce2e3ac42c, type: 3}
+--- !u!114 &609120371 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9125487393391115375, guid: 9c53836fd8fce9f4dbe4ecce2e3ac42c, type: 3}
+  m_PrefabInstance: {fileID: 609120370}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065756381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 140ecc441afc765489e9ab22ee69bb61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -4574,37 +4585,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1164994991}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1060637799
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1060637800}
-  m_Layer: 0
-  m_Name: 
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1060637800
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1060637799}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1064477175 stripped
 Transform:
@@ -13681,6 +13661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ae40351a16bbe74a9c505cdec238a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GachaController
+  playerController: {fileID: 0}
   promptText: {fileID: 1436961041}
   rewards:
   - rewardName: Common
@@ -14002,37 +13983,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7082775703078715881, guid: 5f5a5c606d78e8946b70a03ecd321405, type: 3}
   m_PrefabInstance: {fileID: 1978607942}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1891749435
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1891749436}
-  m_Layer: 0
-  m_Name: 
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1891749436
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1891749435}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1916098282
 GameObject:
   m_ObjectHideFlags: 0
@@ -14855,6 +14805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ae40351a16bbe74a9c505cdec238a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GachaController
+  playerController: {fileID: 609120371}
   promptText: {fileID: 1436961041}
   rewards:
   - rewardName: Common
@@ -14868,7 +14819,7 @@ MonoBehaviour:
     rewardSprite: {fileID: 331846025786670775, guid: 99e2fe71fd63ee541848a11ca882e69d, type: 3}
   - rewardName: Pickle Fella
     rewardRarity: 0
-    rewardSprite: {fileID: 0}
+    rewardSprite: {fileID: -7686138941976625541, guid: 159c26280c17660469f8ea0d78aa3d5b, type: 3}
   - rewardName: Epic Games
     rewardRarity: 1
     rewardSprite: {fileID: -7327663116236986074, guid: ca21040e4ce3fe4419cbb475ed2fa9f4, type: 3}
@@ -15312,8 +15263,6 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1060637800}
-  - {fileID: 1891749436}
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 1161198390}

@@ -79,9 +79,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-
-
         // make this more limited if FixedUpdate is expanded
         if (grabbed || knockbacked || canMove == false)
             return;
