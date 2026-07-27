@@ -929,7 +929,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1583750867491684279, guid: fe08558d4c9cf3745a8fcf090c360c78, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 384866968}
   m_SourcePrefab: {fileID: 100100000, guid: fe08558d4c9cf3745a8fcf090c360c78, type: 3}
 --- !u!1 &228464188
 GameObject:
@@ -1053,7 +1056,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -7170,6 +7173,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3322833473669626696, guid: 606a0f71b9a168243a385823846a878d, type: 3}
   m_PrefabInstance: {fileID: 383576179}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &384866960 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1583750867491684279, guid: fe08558d4c9cf3745a8fcf090c360c78, type: 3}
+  m_PrefabInstance: {fileID: 183949483}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &384866968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384866960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aeb477d6857d1542841d431b659ca26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerRespawn
+  respawnPoint: {fileID: 1614797208}
 --- !u!1 &401066605
 GameObject:
   m_ObjectHideFlags: 0
@@ -7573,7 +7594,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
