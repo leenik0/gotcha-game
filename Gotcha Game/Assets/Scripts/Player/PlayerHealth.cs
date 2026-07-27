@@ -65,9 +65,5 @@ public class PlayerHealth : MonoBehaviour
     public void Respawn(bool resetHealth)
     {
         // add respawn animation perhaps
-
-        if (resetHealth)
-            currentHealth = maxHealth;
-        transform.position = LevelManager.Instance.GetRespawnPosition();
     }
 }

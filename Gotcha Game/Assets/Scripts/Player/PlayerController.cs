@@ -73,8 +73,6 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         animator.SetInteger("animState", 1);
-        if (LevelManager.Instance != null)
-            transform.position = LevelManager.Instance.GetRespawnPosition();
         if (audioSource.clip == null)
             audioSource.clip = walkSFX;
     }
