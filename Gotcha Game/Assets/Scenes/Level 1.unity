@@ -1039,14 +1039,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8441354337931690588, guid: 606a0f71b9a168243a385823846a878d, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8606208046608170851, guid: 606a0f71b9a168243a385823846a878d, type: 3}
-      propertyPath: bounceForce
-      value: 30
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15241,8 +15233,8 @@ MonoBehaviour:
     rewardRarity: 0
     rewardSprite: {fileID: 331846025786670775, guid: 99e2fe71fd63ee541848a11ca882e69d, type: 3}
   - rewardName: Pickle Fella
-    rewardRarity: 0
-    rewardSprite: {fileID: 0}
+    rewardRarity: 3
+    rewardSprite: {fileID: -7686138941976625541, guid: 159c26280c17660469f8ea0d78aa3d5b, type: 3}
   - rewardName: Epic Games
     rewardRarity: 1
     rewardSprite: {fileID: -7327663116236986074, guid: ca21040e4ce3fe4419cbb475ed2fa9f4, type: 3}

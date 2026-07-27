@@ -29,7 +29,7 @@ public class PlinkoLauncher : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") || collision.CompareTag("Vehicle"))
         {
             if (jumpRef.action.triggered)
             {
