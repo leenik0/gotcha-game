@@ -3,43 +3,41 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum Side { left, right };
+
 public class PlinkoLauncher : MonoBehaviour
 {
-    [SerializeField] private InputActionReference jumpRef;
     public float launchForce = 10f;
     public Transform spriteTransform;
     public Vector3 centerPoint;
+    public Side side;
     private float previousAngle = 0f;
+    private float angle;
 
     void Start()
     {
         centerPoint = transform.GetChild(0).transform.position;
         spriteTransform = transform;
+        switch (side)
+        {
+            case Side.left:
+                angle = 15;
+                break;
+            case Side.right:
+                angle = -15;
+                break;
+        }
     }
-
-    private void OnEnable()
-    {
-        jumpRef.action.Enable();
-    }
-
-    private void OnDisable()
-    {
-        jumpRef.action.Disable();
-    }
-
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Vehicle"))
         {
-            if (jumpRef.action.triggered)
+            StartCoroutine(LaunchPlinko());
+            Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
+            if (rb)
             {
-                StartCoroutine(LaunchPlinko());
-                Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
-                if (rb)
-                {
-                    rb.linearVelocity = Vector2.zero;
-                    rb.AddForce(transform.up * launchForce, ForceMode2D.Impulse);
-                }
+                rb.linearVelocity = Vector2.zero;
+                rb.AddForce(transform.up * launchForce, ForceMode2D.Impulse);
             }
         }
     }
@@ -48,7 +46,7 @@ public class PlinkoLauncher : MonoBehaviour
     {
         float duration = 0.5f;
 
-        DOVirtual.Float(0f, -15f, duration, onVirtualUpdate: (float currentAngle) =>
+        DOVirtual.Float(0f, angle, duration, onVirtualUpdate: (float currentAngle) =>
             {
                 float deltaAngle = currentAngle - previousAngle;
                 spriteTransform.RotateAround(centerPoint, Vector3.forward, deltaAngle);
@@ -57,7 +55,7 @@ public class PlinkoLauncher : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
 
-        DOVirtual.Float(-15f, 0f, duration, onVirtualUpdate: (float currentAngle) =>
+        DOVirtual.Float(angle, 0f, duration, onVirtualUpdate: (float currentAngle) =>
             {
                 float deltaAngle = currentAngle - previousAngle;
                 spriteTransform.RotateAround(centerPoint, Vector3.forward, deltaAngle);
