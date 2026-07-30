@@ -73,7 +73,7 @@ public class GachaController : MonoBehaviour, Interactable
 
     public void Interact()
     {
-        if (inventory.GetCoinBalance() >= coinAmountNeeded)
+        if(inventory.GetCoinBalance() >= coinAmountNeeded && canGacha)
         {
             inventory.SpendCoins(coinAmountNeeded);
             Gacha();
