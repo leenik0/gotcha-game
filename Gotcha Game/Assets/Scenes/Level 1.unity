@@ -4820,7 +4820,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   fadeToWhite: {fileID: 675384262}
-  inputAction: {fileID: -5713849865283843679, guid: 1124152cf6873fb41bb1861077093396, type: 3}
   nextScene: 2
 --- !u!1 &1164994990
 GameObject:
