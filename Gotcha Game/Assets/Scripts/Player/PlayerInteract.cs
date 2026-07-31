@@ -67,9 +67,9 @@ public class PlayerInteract : MonoBehaviour
     }
 
     // draws a circle to display the interact range
-    private void OnDrawGizmosSelected()
-    {
-        Handles.color = Color.limeGreen;
-        Handles.DrawWireDisc(transform.position, Vector3.forward, interactRange);
-    }
+    //private void OnDrawGizmosSelected()
+    //{
+    //    //Handles.color = Color.limeGreen;
+    //    //Handles.DrawWireDisc(transform.position, Vector3.forward, interactRange);
+    //}
 }
