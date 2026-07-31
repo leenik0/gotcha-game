@@ -39,6 +39,8 @@ public class GachaController : MonoBehaviour, Interactable
         audioSource = GetComponent<AudioSource>();
         videoPlayer = GetComponent<VideoPlayer>();
         inventory = FindAnyObjectByType<PlayerInventory>();
+
+        videoPlayer.url = "Assets/Confetti.mp4";
     }
     void OnTriggerEnter2D(Collider2D other)
     {
