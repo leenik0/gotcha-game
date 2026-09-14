@@ -64,11 +64,15 @@ public class GachaController : MonoBehaviour, Interactable
         {
             if (playerController) playerController.SetCanMove(false);
             canGacha = false;
+
             GachaReward reward = rewards[Random.Range(0, rewards.Length)];
             title.text = reward.GetName();
             rarity.text = reward.GetRarity();
             sprite.sprite = reward.GetSprite();
             panelImage.color = reward.GetColor();
+
+            //Debug.Log("Reward Name: " + reward.GetName());
+
             StartCoroutine(ShowReward());
         }
     }
@@ -89,7 +93,8 @@ public class GachaController : MonoBehaviour, Interactable
         {
             audioSource.clip = leverClip;
             audioSource.Play();
-            yield return new WaitUntil(() => audioSource.time >= leverClip.length);
+            yield return new WaitUntil(() => audioSource.isPlaying == false);
+            //yield return new WaitUntil(() => audioSource.time >= leverClip.length);
         }
 
         // Rattle SFX
@@ -97,7 +102,8 @@ public class GachaController : MonoBehaviour, Interactable
         {
             audioSource.clip = rattleClip;
             audioSource.Play();
-            yield return new WaitUntil(() => audioSource.time >= rattleClip.length);
+            yield return new WaitUntil(() => audioSource.isPlaying == false);
+            //yield return new WaitUntil(() => audioSource.time >= rattleClip.length);
             yield return new WaitForSeconds(0.5f);
         }
 
@@ -108,38 +114,48 @@ public class GachaController : MonoBehaviour, Interactable
             audioSource.clip = fanfare;
             audioSource.Play();
         }
-        rewardPanel.transform.localScale = Vector3.zero;
-        rewardPanel.transform.localRotation = Quaternion.identity;
-        rewardPanel.transform.DOLocalRotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360).SetEase(Ease.OutQuad);
-        rewardPanel.transform.DOScale(1f, 0.5f).SetEase(Ease.OutBack);
-        rewardPanel.SetActive(true);
+
+        if(rewardPanel)
+        {
+            rewardPanel.transform.localScale = Vector3.zero;
+            rewardPanel.transform.localRotation = Quaternion.identity;
+            rewardPanel.transform.DOLocalRotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360).SetEase(Ease.OutQuad);
+            rewardPanel.transform.DOScale(1f, 0.5f).SetEase(Ease.OutBack);
+            rewardPanel.SetActive(true);
+        }
 
         if (fanfare)
-            yield return new WaitUntil(() => audioSource.time >= fanfare.length);
+            yield return new WaitUntil(() => audioSource.isPlaying == false);
+        //yield return new WaitUntil(() => audioSource.time >= fanfare.length);
 
         if (cheerClip)
         {
             audioSource.clip = cheerClip;
             audioSource.Play();
+            yield return new WaitForSeconds(3f);
         }
 
-        yield return new WaitForSeconds(3f);
 
         PauseVideo();
-        rewardPanel.transform.DOLocalRotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360).SetEase(Ease.OutQuad);
-        rewardPanel.transform.DOScale(0f, 0.3f).SetEase(Ease.InBack).OnComplete(() => { rewardPanel.SetActive(false); });
-        canGacha = true;
+
+        if (rewardPanel)
+        {
+            rewardPanel.transform.DOLocalRotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360).SetEase(Ease.OutQuad);
+            rewardPanel.transform.DOScale(0f, 0.3f).SetEase(Ease.InBack).OnComplete(() => { rewardPanel.SetActive(false); });
+        }
+
         if (playerController) playerController.SetCanMove(true);
+        canGacha = true;
     }
 
     public void PlayVideo()
     {
         Debug.Log("Playing video");
-        if (!videoPlayer.isPlaying) videoPlayer.Play();
+        if (videoPlayer && !videoPlayer.isPlaying) videoPlayer.Play();
     }
 
     public void PauseVideo()
     {
-        if (videoPlayer.isPlaying) videoPlayer.Pause();
+        if (videoPlayer && videoPlayer.isPlaying) videoPlayer.Pause();
     }
 }
