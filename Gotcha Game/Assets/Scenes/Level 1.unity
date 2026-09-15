@@ -4006,7 +4006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -4073,7 +4073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 997f391c956f7004397c0a3aac36b216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FadeToWhite
-  fadeImage: {fileID: 0}
+  fadeImage: {fileID: 1030050337}
 --- !u!114 &1030050337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14002,6 +14002,14 @@ PrefabInstance:
     - target: {fileID: 522763029066052026, guid: 95d2b227969407249ab60cb7689a0134, type: 3}
       propertyPath: m_Name
       value: Gacha System
+      objectReference: {fileID: 0}
+    - target: {fileID: 4185969133892516385, guid: 95d2b227969407249ab60cb7689a0134, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277993330166164265, guid: 95d2b227969407249ab60cb7689a0134, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8350341576042895668, guid: 95d2b227969407249ab60cb7689a0134, type: 3}
       propertyPath: m_LocalPosition.x

@@ -151,7 +151,7 @@ public class GachaController : MonoBehaviour, Interactable
     public void PlayVideo()
     {
         Debug.Log("Playing video");
-        if (videoPlayer && !videoPlayer.isPlaying) videoPlayer.Play();
+        if ((Application.platform != RuntimePlatform.WebGLPlayer) && videoPlayer && !videoPlayer.isPlaying) videoPlayer.Play();
     }
 
     public void PauseVideo()
